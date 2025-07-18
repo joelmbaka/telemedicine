@@ -1,28 +1,43 @@
-import { useEffect, useState } from 'react'
-import { Session } from '@supabase/supabase-js'
-import { supabase } from '../../lib/supabase'
-import { ActivityIndicator, View, Alert, StyleSheet } from 'react-native'
 import { Button, Input } from '@rneui/themed'
+import { Session } from '@supabase/supabase-js'
+import { useEffect, useState } from 'react'
+import { ActivityIndicator, Alert, StyleSheet, View } from 'react-native'
+import { supabase } from '../../lib/supabase'
 
 export default function AccountScreen() {
   const [session, setSession] = useState<Session | null>(null)
-  const [loading, setLoading] = useState(true)
+  const [isFetching, setIsFetching] = useState(true)
+  const [isUpdating, setIsUpdating] = useState(false)
   const [username, setUsername] = useState('')
   const [website, setWebsite] = useState('')
   const [avatarUrl, setAvatarUrl] = useState('')
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => setSession(session))
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => setSession(session))
-    if (session) getProfile()
-    return () => subscription.unsubscribe()
-  }, [session])
+    let isMounted = true;
+    
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (isMounted) setSession(session);
+    });
+    
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (isMounted) setSession(session);
+    });
+    
+    return () => {
+      isMounted = false;
+      subscription.unsubscribe();
+    };
+  }, []);
+  
+  useEffect(() => {
+    if (session) {
+      getProfile();
+    }
+  }, [session]);
 
   async function getProfile() {
     try {
-      setLoading(true)
+      setIsFetching(true)
       if (!session?.user) throw new Error('No user on the session!')
 
       const { data, error, status } = await supabase
@@ -35,16 +50,16 @@ export default function AccountScreen() {
       }
 
       if (data) {
-        setUsername(data.username)
-        setWebsite(data.website)
-        setAvatarUrl(data.avatar_url)
+        setUsername(data.username || '')
+        setWebsite(data.website || '')
+        setAvatarUrl(data.avatar_url || '')
       }
     } catch (error) {
       if (error instanceof Error) {
         Alert.alert(error.message)
       }
     } finally {
-      setLoading(false)
+      setIsFetching(false)
     }
   }
 
@@ -58,7 +73,7 @@ export default function AccountScreen() {
     avatar_url: string
   }) {
     try {
-      setLoading(true)
+      setIsUpdating(true)
       if (!session?.user) throw new Error('No user on the session!')
 
       const updates = {
@@ -79,7 +94,7 @@ export default function AccountScreen() {
         Alert.alert(error.message)
       }
     } finally {
-      setLoading(false)
+      setIsUpdating(false)
     }
   }
 
@@ -105,9 +120,9 @@ export default function AccountScreen() {
 
       <View style={[styles.verticallySpaced, styles.mt20]}>
         <Button
-          title={loading ? 'Loading ...' : 'Update'}
+          title={isUpdating ? 'Updating ...' : 'Update'}
           onPress={() => updateProfile({ username, website, avatar_url: avatarUrl })}
-          disabled={loading}
+          disabled={isUpdating}
         />
       </View>
 

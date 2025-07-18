@@ -1,35 +1,38 @@
-import { Stack } from 'expo-router';
+import { Stack, useRouter, useSegments } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
-import Auth from '../components/Auth';
 
 export default function RootLayout() {
   const [session, setSession] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const router = useRouter();
+  const segments = useSegments();
 
   useEffect(() => {
-    // Check active session on mount
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
+      setIsLoading(false);
     });
 
-    // Listen for auth changes
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
     });
 
-    return () => {
-      subscription.unsubscribe();
-    };
+    return () => subscription.unsubscribe();
   }, []);
 
-  if (!session) {
-    return <Auth />;
-  }
-  return (
-    <Stack>
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-    </Stack>
-  );
+  useEffect(() => {
+    if (isLoading) return;
+
+    const inAuthGroup = segments[0] === 'auth';
+    const inTabsGroup = segments[0] === '(tabs)';
+
+    if (session && !inTabsGroup) {
+      router.replace('/(tabs)');
+    } else if (!session && !inAuthGroup) {
+      router.replace('/auth/sign-in');
+    }
+  }, [session, isLoading, segments]);
+
+  return <Stack screenOptions={{ headerShown: false }} />;
 }
