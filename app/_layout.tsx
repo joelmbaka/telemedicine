@@ -5,6 +5,7 @@ import { supabase } from '../lib/supabase';
 export default function RootLayout() {
   const [session, setSession] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [role, setRole] = useState<string | null>(null);
   const router = useRouter();
   const segments = useSegments();
 
@@ -21,16 +22,47 @@ export default function RootLayout() {
     return () => subscription.unsubscribe();
   }, []);
 
+  // fetch user role when session available
+  useEffect(() => {
+    if (!session?.user) {
+      setRole(null);
+      return;
+    }
+
+    let isMounted = true;
+    (async () => {
+      const { data, error } = await supabase
+        .from('profiles')
+        .select('role')
+        .eq('id', session.user.id)
+        .single();
+      if (!isMounted) return;
+      setRole(error ? null : data?.role ?? null);
+    })();
+    return () => {
+      isMounted = false;
+    };
+  }, [session]);
+
   useEffect(() => {
     if (isLoading) return;
 
-    const inAuthGroup = segments[0] === 'auth';
-    const inTabsGroup = segments[0] === '(tabs)';
+    const firstSegment = segments[0] as string;
+    const inAuthGroup = firstSegment === 'auth';
+    const inTabsGroup = firstSegment === '(tabs)';
+    const inDoctorGroup = firstSegment === '(doctor)';
 
-    if (session && !inTabsGroup) {
-      router.replace('/(tabs)');
-    } else if (!session && !inAuthGroup) {
+    if (!session && !inAuthGroup) {
       router.replace('/auth/sign-in');
+      return;
+    }
+
+    if (!session || role === null) return; // wait until role fetched
+
+    if (role === 'doctor') {
+      if (!inDoctorGroup) router.replace('/(doctor)' as any);
+    } else {
+      if (!inTabsGroup) router.replace('/(tabs)');
     }
   }, [session, isLoading, segments]);
 

@@ -1,6 +1,6 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { Doctor } from '../app/types';
+import { Doctor } from '../lib/types';
 
 type DoctorCardProps = {
   doctor: Doctor;

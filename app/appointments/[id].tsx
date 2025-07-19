@@ -1,7 +1,7 @@
 import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Appointment } from '../types';
-import { View, Text, StyleSheet } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import { Appointment } from '../../lib/types';
 
 export default function AppointmentDetail() {
   const { id } = useLocalSearchParams();

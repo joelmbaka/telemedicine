@@ -1,7 +1,7 @@
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Appointment } from '../lib/types';
 import DoctorCard from './DoctorCard';
-import { Appointment } from '../app/types';
 
 type AppointmentCardProps = {
   appointment: Appointment;

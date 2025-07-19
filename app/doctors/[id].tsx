@@ -1,7 +1,7 @@
 import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { Doctor } from '../types';
+import { StyleSheet, Text, View } from 'react-native';
+import { Doctor } from '../../lib/types';
 
 export default function DoctorDetail() {
   const { id } = useLocalSearchParams();

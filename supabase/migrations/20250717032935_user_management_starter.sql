@@ -1,3 +1,6 @@
+-- Enum for user roles
+create type role_enum as enum ('patient','doctor','pharmacist','accountant','admin');
+
 -- Create a table for public profiles
 create table profiles (
   id uuid references auth.users not null primary key,
@@ -5,7 +8,11 @@ create table profiles (
   username text unique,
   full_name text,
   avatar_url text,
+  email text unique,
   website text,
+  role role_enum not null default 'patient',
+  phone text,
+  stripe_customer_id text,
 
   constraint username_length check (char_length(username) >= 3)
 );
@@ -30,8 +37,8 @@ returns trigger
 set search_path = ''
 as $$
 begin
-  insert into public.profiles (id, full_name, avatar_url)
-  values (new.id, new.raw_user_meta_data->>'full_name', new.raw_user_meta_data->>'avatar_url');
+  insert into public.profiles (id, full_name, avatar_url, email)
+  values (new.id, new.raw_user_meta_data->>'full_name', new.raw_user_meta_data->>'avatar_url', new.email);
   return new;
 end;
 $$ language plpgsql security definer;

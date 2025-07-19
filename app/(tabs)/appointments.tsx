@@ -1,75 +1,81 @@
-import { Text, View, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { Link, useRouter } from 'expo-router';
+import { useEffect, useState } from 'react';
+import { ActivityIndicator, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import AppointmentCard from '../../components/AppointmentCard';
-import { Appointment } from '../types';
-import { Link } from 'expo-router';
+import { supabase } from '../../lib/supabase';
+import { Appointment } from '../../lib/types';
 
 export default function AppointmentsScreen() {
-  // Mock data - will be replaced with API calls
-  const appointments: Appointment[] = [
-    {
-      id: '1',
-      doctor: {
-        id: 'd1',
-        name: 'Dr. Jane Smith',
-        specialty: 'Cardiology',
-        rating: 4.8,
-        available: true,
-      },
-      date: '2023-06-15',
-      time: '10:00 AM',
-      status: 'upcoming',
-    },
-    {
-      id: '2',
-      doctor: {
-        id: 'd2',
-        name: 'Dr. Michael Chen',
-        specialty: 'Dermatology',
-        rating: 4.6,
-        available: true,
-      },
-      date: '2023-06-20',
-      time: '2:30 PM',
-      status: 'upcoming',
-    },
-    {
-      id: '3',
-      doctor: {
-        id: 'd3',
-        name: 'Dr. Sarah Johnson',
-        specialty: 'Pediatrics',
-        rating: 4.9,
-        available: false,
-      },
-      date: '2023-05-10',
-      time: '9:15 AM',
-      status: 'past',
-    },
-    {
-      id: '4',
-      doctor: {
-        id: 'd4',
-        name: 'Dr. Robert Kim',
-        specialty: 'Orthopedics',
-        rating: 4.7,
-        available: true,
-      },
-      date: '2023-04-28',
-      time: '11:45 AM',
-      status: 'past',
-    },
-  ];
+  const [appointments, setAppointments] = useState<Appointment[]>([]);
+  const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
-  const upcomingAppointments = appointments.filter(a => a.status === 'upcoming');
-  const pastAppointments = appointments.filter(a => a.status === 'past');
+  useEffect(() => {
+    let mounted = true;
+    (async () => {
+      const { data: sessionData } = await supabase.auth.getSession();
+      const userId = sessionData.session?.user.id;
+      if (!userId) {
+        setLoading(false);
+        return;
+      }
+      const { data, error } = await supabase
+        .from('appointments')
+        .select(
+          `id, status, scheduled_at, doctor:doctors(id, name, specialty, rating, available)`
+        )
+        .eq('patient_id', userId)
+        .order('scheduled_at', { ascending: true });
+      if (!mounted) return;
+      if (error) {
+        console.error(error);
+        setLoading(false);
+        return;
+      }
+      const list: Appointment[] = (data || []).map((a: any) => {
+        const dt = new Date(a.scheduled_at);
+        return {
+          id: a.id,
+          doctor: a.doctor,
+          date: dt.toLocaleDateString(),
+          time: dt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+          status: a.status,
+        } as Appointment;
+      });
+      setAppointments(list);
+      setLoading(false);
+    })().finally(() => {
+      if (mounted) setLoading(false);
+    });
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  if (loading) {
+    return (
+      <View style={styles.center}>
+        <ActivityIndicator color="#64d2ff" />
+      </View>
+    );
+  }
+
+  const upcomingAppointments = appointments.filter(a => {
+    const dt = new Date(`${a.date} ${a.time}`);
+    return dt >= new Date();
+  });
+  const pastAppointments = appointments.filter(a => {
+    const dt = new Date(`${a.date} ${a.time}`);
+    return dt < new Date();
+  });
 
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.title}>Appointments</Text>
       
       {/* Book New Appointment Button */}
-      <TouchableOpacity style={styles.bookButton} onPress={() => alert('Booking new appointment')}>
+      <TouchableOpacity style={styles.bookButton} onPress={() => router.push('/(modals)/new-appointment')}>
         <Ionicons name="add-circle" size={24} color="white" />
         <Text style={styles.bookButtonText}>Book New Appointment</Text>
       </TouchableOpacity>
@@ -141,5 +147,11 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
     textAlign: 'center',
     marginVertical: 10,
+  },
+  center: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#1a1d23',
   },
 });
