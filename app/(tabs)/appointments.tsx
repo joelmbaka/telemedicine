@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { ActivityIndicator, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import AppointmentCard from '../../components/AppointmentCard';
 import { supabase } from '../../lib/supabase';
-import { Appointment } from '../../lib/types';
+import { Appointment, Doctor } from '../../lib/types';
 
 export default function AppointmentsScreen() {
   const [appointments, setAppointments] = useState<Appointment[]>([]);
@@ -23,7 +23,7 @@ export default function AppointmentsScreen() {
       const { data, error } = await supabase
         .from('appointments')
         .select(
-          `id, status, scheduled_at, doctor:doctors(id, name, specialty, rating, available)`
+          `id, status, scheduled_at, doctor:doctors(id, specialty, rating_avg, available, profiles(full_name))`
         )
         .eq('patient_id', userId)
         .order('scheduled_at', { ascending: true });
@@ -35,9 +35,17 @@ export default function AppointmentsScreen() {
       }
       const list: Appointment[] = (data || []).map((a: any) => {
         const dt = new Date(a.scheduled_at);
+        const { id: docId, specialty, rating_avg, available, profiles } = a.doctor || {};
+        const doctorObj = {
+          id: docId,
+          name: profiles?.full_name ?? 'Doctor',
+          specialty,
+          rating: Number(rating_avg) || 0,
+          available,
+        } as Doctor;
         return {
           id: a.id,
-          doctor: a.doctor,
+          doctor: doctorObj,
           date: dt.toLocaleDateString(),
           time: dt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
           status: a.status,

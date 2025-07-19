@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, Button, Platform } from 'react-native';
+import { View, Text, StyleSheet, Button, ActivityIndicator, TouchableOpacity, ScrollView } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
-import DateTimePicker from '@react-native-community/datetimepicker';
+import { Calendar } from 'react-native-calendars';
+import { format, parseISO } from 'date-fns';
 import { supabase } from '../../lib/supabase';
 import { Doctor } from '../../lib/types';
 import { useRouter } from 'expo-router';
@@ -10,9 +11,10 @@ export default function NewAppointmentModal() {
   const router = useRouter();
   const [doctors, setDoctors] = useState<Doctor[]>([]);
   const [doctorId, setDoctorId] = useState<string | undefined>();
-  const [date, setDate] = useState(new Date());
-  const [showDatePicker, setShowDatePicker] = useState(false);
-  const [showTimePicker, setShowTimePicker] = useState(false);
+  const [selectedDate, setSelectedDate] = useState<string | null>(null);
+  const [slots, setSlots] = useState<any[]>([]);
+  const [selectedSlotId, setSelectedSlotId] = useState<string | null>(null);
+  const [loadingSlots, setLoadingSlots] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
@@ -36,34 +38,54 @@ export default function NewAppointmentModal() {
     })();
   }, []);
 
-  const onAndroidChange = (event: any, selected?: Date) => {
-    if (Platform.OS === 'android') {
-      setShowDatePicker(false);
-      setShowTimePicker(false);
-    }
-    if (selected) setDate(selected);
-  };
+  // Fetch available slots when doctor and date selected
+  useEffect(() => {
+    if (!doctorId || !selectedDate) return;
+    
+    const fetchSlots = async () => {
+      setLoadingSlots(true);
+      const { data, error } = await supabase
+        .rpc('get_free_slots', { 
+          _doctor: doctorId, 
+          _day: selectedDate 
+        });
+      
+      if (error) console.error(error);
+      else setSlots(data || []);
+      
+      setLoadingSlots(false);
+    };
+    
+    fetchSlots();
+  }, [doctorId, selectedDate]);
 
   async function handleSubmit() {
-    if (!doctorId) return;
+    if (!doctorId || !selectedSlotId) return;
+    
     setSubmitting(true);
-    try {
-      const { data: sessionData } = await supabase.auth.getSession();
-      const patientId = sessionData.session?.user.id;
-      if (!patientId) throw new Error('Not logged in');
-
-      const { error } = await supabase.from('appointments').insert({
-        patient_id: patientId,
-        doctor_id: doctorId,
-        scheduled_at: date.toISOString(),
-        status: 'awaiting_payment',
-      });
-      if (error) throw error;
-      router.back();
-    } catch (err) {
-      console.error(err);
+    const session = await supabase.auth.getSession();
+    const userId = session.data.session?.user.id;
+    
+    if (!userId) {
+      console.error('No user session');
       setSubmitting(false);
+      return;
     }
+    
+    const { data: appointmentId, error } = await supabase
+      .rpc('book_slot', { 
+        _slot: selectedSlotId, 
+        _patient: userId 
+      });
+    
+    if (error) {
+      console.error(error);
+    } else {
+      console.log('Appointment booked:', appointmentId);
+      router.back();
+    }
+    
+    setSubmitting(false);
   }
 
   return (
@@ -74,8 +96,7 @@ export default function NewAppointmentModal() {
       <View style={styles.pickerWrapper}>
         <Picker
           selectedValue={doctorId}
-          onValueChange={(value) => setDoctorId(value)}
-          style={{ flex: 1 }}
+          onValueChange={(itemValue) => setDoctorId(itemValue)}
         >
           <Picker.Item label="Select doctor…" value={undefined} />
           {doctors.map((d) => (
@@ -84,30 +105,58 @@ export default function NewAppointmentModal() {
         </Picker>
       </View>
 
-      <Text style={styles.label}>Date & Time</Text>
-      <Button title={date.toLocaleString()} onPress={() => setShowDatePicker(true)} />
+      <Calendar
+        minDate={new Date().toISOString().split('T')[0]}
+        onDayPress={day => {
+          setSelectedDate(day.dateString);
+          setSelectedSlotId(null);
+        }}
+        markedDates={{
+          [selectedDate || '']: {selected: true, selectedColor: '#3b82f6'}
+        }}
+      />
+      
+      {selectedDate && (
+        <View>
+          <Text className="text-lg font-bold mt-4">Available Slots</Text>
+          
+          {loadingSlots ? (
+            <ActivityIndicator />
+          ) : slots.length === 0 ? (
+            <Text>No available slots</Text>
+          ) : (
+            <View style={{ maxHeight: 200 }}>
+              <ScrollView>
+                {slots.map(slot => (
+                  <TouchableOpacity
+                    key={slot.id}
+                    style={[
+                      styles.slotButton,
+                      selectedSlotId === slot.id && styles.selectedSlot
+                    ]}
+                    onPress={() => setSelectedSlotId(slot.id)}
+                  >
+                    <Text style={selectedSlotId === slot.id 
+                      ? styles.selectedSlotText 
+                      : styles.slotText}>
+                      {format(parseISO(slot.start_time), 'HH:mm')}
+                    </Text>
+                  </TouchableOpacity>
+                ))}
+              </ScrollView>
+            </View>
+          )}
+        </View>
+      )}
 
-      {showDatePicker && (
-        <DateTimePicker
-          value={date}
-          mode="date"
-          onChange={(e, d) => {
-            onAndroidChange(e, d);
-            if (d) setShowTimePicker(true);
-          }}
-        />
-      )}
-      {showTimePicker && (
-        <DateTimePicker
-          value={date}
-          mode="time"
-          onChange={onAndroidChange}
-        />
-      )}
+      <Button
+        title="Confirm Appointment"
+        disabled={!selectedSlotId || submitting}
+        onPress={handleSubmit}
+      />
 
       <View style={styles.buttonRow}>
-        <Button title="Cancel" onPress={() => router.back()} />
-        <Button title={submitting ? 'Saving…' : 'Confirm'} onPress={handleSubmit} disabled={submitting || !doctorId} />
+        <Button title="Cancel" onPress={() => router.replace('/(tabs)/appointments')} />
       </View>
     </View>
   );
@@ -139,5 +188,25 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: 32,
+  },
+  slotButton: {
+    padding: 12,
+    marginVertical: 4,
+    borderRadius: 8,
+    backgroundColor: '#f3f4f6',
+  },
+  selectedSlot: {
+    backgroundColor: '#3b82f6',
+    borderWidth: 2,
+    borderColor: '#2563eb',
+  },
+  slotText: {
+    textAlign: 'center',
+    color: '#1f2937',
+  },
+  selectedSlotText: {
+    textAlign: 'center',
+    color: 'white',
+    fontWeight: 'bold',
   },
 });

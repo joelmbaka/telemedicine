@@ -51,6 +51,7 @@ export default function RootLayout() {
     const inAuthGroup = firstSegment === 'auth';
     const inTabsGroup = firstSegment === '(tabs)';
     const inDoctorGroup = firstSegment === '(doctor)';
+    const inModalsGroup = firstSegment === '(modals)';
 
     if (!session && !inAuthGroup) {
       router.replace('/auth/sign-in');
@@ -60,9 +61,9 @@ export default function RootLayout() {
     if (!session || role === null) return; // wait until role fetched
 
     if (role === 'doctor') {
-      if (!inDoctorGroup) router.replace('/(doctor)' as any);
+      if (!inDoctorGroup && !inModalsGroup) router.replace('/(doctor)' as any);
     } else {
-      if (!inTabsGroup) router.replace('/(tabs)');
+      if (!inTabsGroup && !inModalsGroup) router.replace('/(tabs)');
     }
   }, [session, isLoading, segments]);
 
