@@ -5,6 +5,7 @@ export type Doctor = {
   rating: number;
   available: boolean;
   image?: string;
+  consultation_fee_cents?: number;
 };
 
 export type Appointment = {
@@ -12,6 +13,8 @@ export type Appointment = {
   doctor: Doctor;
   date: string;
   time: string;
-  status: 'upcoming' | 'past' | 'cancelled';
+  status: 'upcoming' | 'past' | 'cancelled' | 'awaiting_payment' | 'paid';
   notes?: string;
+  fee_cents?: number;
+  stripe_payment_intent_id?: string;
 };

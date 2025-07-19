@@ -14,12 +14,13 @@ $$;
 
 -- Book a slot atomically
 CREATE OR REPLACE FUNCTION book_slot(_slot uuid, _patient uuid)
-RETURNS uuid -- returns appointment ID
+RETURNS TABLE(id uuid, fee_cents integer) -- returns appointment ID and fee
 LANGUAGE PLPGSQL SECURITY DEFINER
 AS $$
 DECLARE
   appt_id uuid := gen_random_uuid();
   slot_record record;
+  fee integer;
 BEGIN
   -- Get slot details in transaction
   SELECT * INTO slot_record FROM doctor_availability_slots
@@ -30,23 +31,28 @@ BEGIN
     RAISE EXCEPTION 'Slot already booked or does not exist';
   END IF;
 
+  -- Get doctor's fee
+  SELECT consultation_fee_cents INTO fee
+  FROM doctors WHERE id = slot_record.doctor_id;
+
   -- Mark slot as booked
   UPDATE doctor_availability_slots
   SET is_booked = true
   WHERE id = _slot;
 
   -- Create appointment
-  INSERT INTO appointments(id, patient_id, doctor_id, scheduled_at, status, slot_id)
+  INSERT INTO appointments(id, patient_id, doctor_id, scheduled_at, status, slot_id, fee_cents)
   VALUES (
     appt_id,
     _patient,
     slot_record.doctor_id,
     slot_record.start_ts,
     'awaiting_payment',
-    _slot
+    _slot,
+    fee
   );
 
-  RETURN appt_id;
+  RETURN QUERY SELECT appt_id, fee;
 END;
 $$;
 

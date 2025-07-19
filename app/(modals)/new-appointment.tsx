@@ -82,7 +82,26 @@ export default function NewAppointmentModal() {
       console.error(error);
     } else {
       console.log('Appointment booked:', appointmentId);
-      router.back();
+      
+      // Fixed fee of $20 (2000 cents)
+      const feeCents = 2000;
+      
+      // Create Stripe checkout session
+      const response = await supabase.functions.invoke('create-checkout-session', {
+        body: {
+          appointment_id: appointmentId,
+          amount_cents: 2000,
+          success_url: `${window.location.origin}/appointments/success`,
+          cancel_url: `${window.location.origin}/appointments/cancel`
+        }
+      });
+
+      if (response.error) {
+        console.error('Failed to create checkout session', response.error);
+      } else {
+        // Redirect to the Stripe checkout page
+        router.push(response.data.sessionUrl);
+      }
     }
     
     setSubmitting(false);
