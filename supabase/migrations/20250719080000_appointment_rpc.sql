@@ -73,8 +73,16 @@ BEGIN
       -- Generate slots from 8AM to 5PM with 30-minute intervals
       FOR hour IN 8..16 LOOP
         -- First half-hour slot (e.g., 8:00-8:30)
-        slot_start := current_day + make_interval(hours => hour);
-        slot_end := slot_start + interval '30 minutes';
+        slot_start := make_timestamptz(
+            extract(year from current_day)::int,
+            extract(month from current_day)::int,
+            extract(day   from current_day)::int,
+            hour,
+            0,
+            0,
+            'Africa/Nairobi'
+          );
+          slot_end := slot_start + interval '30 minutes';
         
         INSERT INTO doctor_availability_slots (doctor_id, start_ts, end_ts, is_booked)
         VALUES (_doctor, slot_start, slot_end, false)

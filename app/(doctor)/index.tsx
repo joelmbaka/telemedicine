@@ -1,7 +1,8 @@
 import { Redirect } from 'expo-router';
 
-// This screen ensures that navigating to "/(doctor)" will automatically show the first tab (Schedule)
-// instead of falling back to the 404 "Go back to Home" screen.
-export default function DoctorIndex() {
+// Root of the (doctor) group – immediately send user to first tab (schedule).
+// Because (doctor)/_layout.tsx explicitly lists tabs, this route will NOT appear
+// as its own tab; it just prevents a 404 when navigating to / (doctor).
+export default function DoctorRootRedirect() {
   return <Redirect href="/(doctor)/schedule" />;
 }

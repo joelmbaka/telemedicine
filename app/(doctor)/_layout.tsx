@@ -13,6 +13,9 @@ export default function DoctorTabLayout() {
         tabBarStyle: { backgroundColor: '#25292e' },
       }}
     >
+      {/* Hide root index route from tab bar */}
+      <Tabs.Screen name="index" options={{ href: null }} />
+
       <Tabs.Screen
         name="schedule"
         options={{
