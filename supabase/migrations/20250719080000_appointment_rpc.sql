@@ -56,40 +56,49 @@ BEGIN
 END;
 $$;
 
--- Create doctor availability slots for a given week
 CREATE OR REPLACE FUNCTION generate_weekly_slots(_doctor uuid, _start_date date, _weeks integer)
 RETURNS void
 LANGUAGE PLPGSQL
 AS $$
 DECLARE
-  current_day date := _start_date;
-  end_date date := _start_date + (_weeks * 7);
-  slot_start timestamp;
-  slot_end timestamp;
+  current_day date;
+  end_date date;
+  slot_start timestamptz;
+  slot_end timestamptz;
+  day_of_week integer;
+  days_until_monday integer;
 BEGIN
+  -- Calculate next Monday (or today if it's already Monday)
+  day_of_week := EXTRACT(ISODOW FROM _start_date);
+  days_until_monday := CASE 
+    WHEN day_of_week = 1 THEN 0  -- Already Monday
+    ELSE (8 - day_of_week)::int % 7  -- Days until next Monday
+  END;
+  
+  current_day := _start_date + (days_until_monday * interval '1 day');
+  end_date := current_day + (_weeks * 7);
+  
   WHILE current_day <= end_date LOOP
     -- Skip weekends (0=Sunday, 6=Saturday)
-    IF EXTRACT(DOW FROM current_day) BETWEEN 1 AND 5 THEN
+    IF EXTRACT(ISODOW FROM current_day) BETWEEN 1 AND 5 THEN
       -- Generate slots from 8AM to 5PM with 30-minute intervals
-      FOR hour IN 8..16 LOOP
+      FOR hour IN 8..16 LOOP  -- 8AM to 4PM
         -- First half-hour slot (e.g., 8:00-8:30)
         slot_start := make_timestamptz(
-            extract(year from current_day)::int,
-            extract(month from current_day)::int,
-            extract(day   from current_day)::int,
-            hour,
-            0,
-            0,
-            'Africa/Nairobi'
-          );
-          slot_end := slot_start + interval '30 minutes';
+          EXTRACT(YEAR FROM current_day)::int,
+          EXTRACT(MONTH FROM current_day)::int,
+          EXTRACT(DAY FROM current_day)::int,
+          hour, 0, 0,
+          'Africa/Nairobi'
+        );
+        slot_end := slot_start + interval '30 minutes';
         
         INSERT INTO doctor_availability_slots (doctor_id, start_ts, end_ts, is_booked)
         VALUES (_doctor, slot_start, slot_end, false)
         ON CONFLICT DO NOTHING;
         
-        -- Second half-hour slot (e.g., 8:30-9:00) - but not for the last hour
-        IF hour < 16 THEN
+        -- Second half-hour slot (e.g., 8:30-9:00) - including 4:30-5:00
+        IF hour < 16 OR (hour = 16) THEN
           slot_start := slot_start + interval '30 minutes';
           slot_end := slot_end + interval '30 minutes';
           

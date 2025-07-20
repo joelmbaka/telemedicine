@@ -13,6 +13,15 @@ export default function AppointmentCard({ appointment, onPress }: AppointmentCar
     <TouchableOpacity style={styles.card} onPress={onPress}>
       <DoctorCard doctor={appointment.doctor} />
       
+      {appointment.patient?.email && (
+        <View style={styles.patientInfo}>
+          <Ionicons name="mail-outline" size={16} color="#7f8c8d" />
+          <Text style={styles.patientText}>
+            {appointment.patient.email}
+          </Text>
+        </View>
+      )}
+      
       <View style={styles.appointmentDetails}>
         <View style={styles.dateTimeContainer}>
           <Ionicons name="calendar-outline" size={16} color="#7f8c8d" />
@@ -26,6 +35,7 @@ export default function AppointmentCard({ appointment, onPress }: AppointmentCar
           styles.statusContainer,
           {
             backgroundColor: 
+              appointment.status === 'paid' ? '#e8f5e9' :
               appointment.status === 'upcoming' ? '#e3f2fd' : 
               appointment.status === 'past' ? '#e8f5e9' : '#ffebee'
           }
@@ -34,6 +44,7 @@ export default function AppointmentCard({ appointment, onPress }: AppointmentCar
             styles.statusText,
             {
               color: 
+                appointment.status === 'paid' ? '#2E7D32' :
                 appointment.status === 'upcoming' ? '#1976d2' : 
                 appointment.status === 'past' ? '#2E7D32' : '#d32f2f'
             }
@@ -63,6 +74,17 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 2,
+  },
+  patientInfo: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 4,
+    marginBottom: 8,
+  },
+  patientText: {
+    marginLeft: 8,
+    color: '#34495e',
+    fontSize: 14,
   },
   appointmentDetails: {
     flexDirection: 'row',
