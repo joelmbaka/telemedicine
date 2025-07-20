@@ -18,19 +18,22 @@ export default function ScheduleScreen() {
 
       const { data } = await supabase
         .from('appointments')
-        .select('id, date, time, status, patient:profiles(id, full_name)')
+        .select('id, status, scheduled_at, patient:profiles(id, full_name)')
         .eq('doctor_id', session.user.id)
-        .order('date', { ascending: true });
+        
       if (isMounted && data) {
         // Map to mock Appointment type shape just for display
         setAppointments(
-          data.map((a: any) => ({
-            id: a.id,
-            doctor: { id: session.user.id, name: '', specialty: '', rating: 0, available: true },
-            date: a.date,
-            time: a.time,
-            status: a.status,
-          })) as Appointment[],
+          data.map((a: any) => {
+            const dt = new Date(a.scheduled_at);
+            return {
+              id: a.id,
+              doctor: { id: session.user.id, name: '', specialty: '', rating: 0, available: true },
+              date: dt.toLocaleDateString(),
+              time: dt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+              status: a.status,
+            } as Appointment;
+          }),
         );
       }
       setLoading(false);
