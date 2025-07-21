@@ -3,20 +3,39 @@ import { Alert, StyleSheet, View, Text } from 'react-native';
 import { supabase } from '@/lib/supabase';
 import { Button, Input } from '@rneui/themed';
 import { Link } from 'expo-router';
+import { useRouter } from 'expo-router';
 
 export default function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
 
+  const router = useRouter();
+
   async function handleSignIn() {
     setLoading(true);
-    const { error } = await supabase.auth.signInWithPassword({
+    const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password
     });
 
-    if (error) Alert.alert(error.message);
+    if (error) {
+      Alert.alert(error.message);
+    } else if (data?.user) {
+      // Get user role after successful sign-in
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('role')
+        .eq('id', data.user.id)
+        .single();
+      
+      // Navigate based on role
+      if (profile?.role === 'doctor') {
+        router.replace('/(doctor)');
+      } else {
+        router.replace('/(tabs)');
+      }
+    }
     setLoading(false);
   }
 
