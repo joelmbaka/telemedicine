@@ -15,6 +15,9 @@ export default function DoctorTabLayout() {
     >
       {/* Hide root index route from tab bar */}
       <Tabs.Screen name="index" options={{ href: null }} />
+      {/* Hide dynamic routes from tab bar */}
+      <Tabs.Screen name="appointment/[id]" options={{ href: null }} />
+      <Tabs.Screen name="consultation/[appointmentId]" options={{ href: null }} />
 
       <Tabs.Screen
         name="schedule"

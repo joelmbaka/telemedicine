@@ -10,6 +10,7 @@ export default function SignUp() {
   const [fullName, setFullName] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [snackbarVisible, setSnackbarVisible] = useState(false);
 
   async function handleSignUp() {
     if (password !== confirmPassword) {
@@ -29,7 +30,7 @@ export default function SignUp() {
     if (error) {
       Alert.alert(error.message);
     } else {
-      Alert.alert('Check your email for verification!');
+      setSnackbarVisible(true);
     }
     setLoading(false);
   }
