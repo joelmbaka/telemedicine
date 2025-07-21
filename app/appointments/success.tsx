@@ -7,7 +7,7 @@ export default function PaymentSuccess() {
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text style={{ fontSize: 20, marginBottom: 20 }}>Payment Successful!</Text>
       <Text>Your appointment has been confirmed.</Text>
-      <Button title="Back to Appointments" onPress={() => router.push('/appointments')} />
+      <Button title="Back to Appointments" onPress={() => router.replace('/(tabs)/appointments')} />
     </View>
   );
 }

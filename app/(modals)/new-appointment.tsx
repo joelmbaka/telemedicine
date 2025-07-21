@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, Button, ActivityIndicator, TouchableOpacity, ScrollView } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
-import { Calendar } from 'react-native-calendars';
 import { format, parseISO } from 'date-fns';
+import { useRouter } from 'expo-router';
+import { useEffect, useState } from 'react';
+import { ActivityIndicator, Button, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Calendar } from 'react-native-calendars';
 import { supabase } from '../../lib/supabase';
 import { Doctor } from '../../lib/types';
-import { useRouter } from 'expo-router';
 
 export default function NewAppointmentModal() {
   const router = useRouter();
@@ -87,13 +87,12 @@ export default function NewAppointmentModal() {
       const feeCents = 2000;
       
       // Create Stripe checkout session
-      const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || window.location.origin;
       const response = await supabase.functions.invoke('create-checkout-session', {
         body: {
           appointment_id: appointmentId,
           amount_cents: 2000,
-          success_url: `${baseUrl}/appointments/success`,
-          cancel_url: `${baseUrl}/appointments/cancel`
+          success_url: `${window.location.origin}/appointments/success/`,
+          cancel_url: `${window.location.origin}/appointments/cancel/`
         }
       });
 
