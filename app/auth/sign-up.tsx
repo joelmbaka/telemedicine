@@ -7,6 +7,7 @@ import { Link } from 'expo-router';
 export default function SignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [fullName, setFullName] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -17,7 +18,13 @@ export default function SignUp() {
     }
     
     setLoading(true);
-    const { error } = await supabase.auth.signUp({ email, password });
+    const { error } = await supabase.auth.signUp({ 
+      email, 
+      password,
+      options: {
+        data: { full_name: fullName }
+      }
+    });
     
     if (error) {
       Alert.alert(error.message);
@@ -30,6 +37,16 @@ export default function SignUp() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>my health hub</Text>
+      <View style={[styles.verticallySpaced, styles.mt20]}>
+        <Input
+          label="Full Name"
+          leftIcon={{ type: 'font-awesome', name: 'user' }}
+          onChangeText={setFullName}
+          value={fullName}
+          placeholder="John Doe"
+          autoCapitalize="words"
+        />
+      </View>
       <View style={[styles.verticallySpaced, styles.mt20]}>
         <Input
           label="Email"

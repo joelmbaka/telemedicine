@@ -1,62 +1,94 @@
 import { Ionicons } from '@expo/vector-icons';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, ViewStyle, TextStyle } from 'react-native';
 import { Appointment } from '../lib/types';
-import DoctorCard from './DoctorCard';
 
 type AppointmentCardProps = {
   appointment: Appointment;
   onPress?: () => void;
 };
 
+const getStatusDisplay = (status: string) => {
+  const statusMap: Record<string, string> = {
+    'requested': 'Requested',
+    'awaiting_payment': 'Awaiting Payment',
+    'paid': 'Paid',
+    'in_progress': 'In Progress',
+    'complete': 'Completed',
+    'cancelled': 'Cancelled',
+    'refunded': 'Refunded'
+  };
+  return statusMap[status] || status;
+};
+
+const getStatusColor = (status: string) => {
+  switch (status) {
+    case 'paid':
+      return { bg: '#e8f5e9', text: '#2E7D32' };
+    case 'in_progress':
+      return { bg: '#e3f2fd', text: '#1976d2' };
+    case 'complete':
+      return { bg: '#e8f5e9', text: '#2E7D32' };
+    case 'cancelled':
+      return { bg: '#ffebee', text: '#d32f2f' };
+    case 'requested':
+      return { bg: '#fff3e0', text: '#ff8f00' };
+    default:
+      return { bg: '#f5f5f5', text: '#757575' };
+  }
+};
+
 export default function AppointmentCard({ appointment, onPress }: AppointmentCardProps) {
+  const statusColors = getStatusColor(appointment.status);
+
   return (
-    <TouchableOpacity style={styles.card} onPress={onPress}>
-      <DoctorCard doctor={appointment.doctor} />
-      
-      {appointment.patient?.email && (
+    <TouchableOpacity style={styles.card} onPress={() => {
+      console.log('AppointmentCard pressed for appointment:', appointment.id);
+      onPress?.();
+    }}>
+      <View style={styles.header}>
         <View style={styles.patientInfo}>
-          <Ionicons name="mail-outline" size={16} color="#7f8c8d" />
-          <Text style={styles.patientText}>
-            {appointment.patient.email}
-          </Text>
+          <View style={styles.avatar}>
+            <Ionicons name="person" size={20} color="#7f8c8d" />
+          </View>
+          <View>
+            <Text style={styles.patientName}>
+              {appointment.patient?.full_name || 'Unknown Patient'}
+            </Text>
+            {appointment.patient?.email && (
+              <Text style={styles.patientEmail}>
+                {appointment.patient.email}
+              </Text>
+            )}
+          </View>
         </View>
-      )}
+      </View>
       
       <View style={styles.appointmentDetails}>
         <View style={styles.dateTimeContainer}>
           <Ionicons name="calendar-outline" size={16} color="#7f8c8d" />
           <Text style={styles.dateTimeText}>{appointment.date}</Text>
           
-          <Ionicons name="time-outline" size={16} color="#7f8c8d" style={styles.timeIcon} />
+          <Ionicons 
+            name="time-outline" 
+            size={16} 
+            color="#7f8c8d" 
+            style={styles.timeIcon} 
+          />
           <Text style={styles.dateTimeText}>{appointment.time}</Text>
         </View>
         
-        <View style={[
-          styles.statusContainer,
-          {
-            backgroundColor: 
-              appointment.status === 'paid' ? '#e8f5e9' :
-              appointment.status === 'upcoming' ? '#e3f2fd' : 
-              appointment.status === 'past' ? '#e8f5e9' : '#ffebee'
-          }
-        ]}>
-          <Text style={[
-            styles.statusText,
-            {
-              color: 
-                appointment.status === 'paid' ? '#2E7D32' :
-                appointment.status === 'upcoming' ? '#1976d2' : 
-                appointment.status === 'past' ? '#2E7D32' : '#d32f2f'
-            }
-          ]}>
-            {appointment.status.charAt(0).toUpperCase() + appointment.status.slice(1)}
+        <View style={[styles.statusContainer, { backgroundColor: statusColors.bg }]}>
+          <Text style={[styles.statusText, { color: statusColors.text }]}>
+            {getStatusDisplay(appointment.status)}
           </Text>
         </View>
       </View>
-      
+
       {appointment.notes && (
         <View style={styles.notesContainer}>
-          <Text style={styles.notesText}>{appointment.notes}</Text>
+          <Text style={styles.notesText} numberOfLines={2} ellipsizeMode="tail">
+            {appointment.notes}
+          </Text>
         </View>
       )}
     </TouchableOpacity>
@@ -74,18 +106,36 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 2,
-  },
+  } as ViewStyle,
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 12,
+  } as ViewStyle,
   patientInfo: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 4,
-    marginBottom: 8,
-  },
-  patientText: {
-    marginLeft: 8,
-    color: '#34495e',
+  } as ViewStyle,
+  avatar: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: '#f0f0f0',
+    justifyContent: 'center' as const,
+    alignItems: 'center' as const,
+    marginRight: 12,
+  } as ViewStyle,
+  patientName: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#2c3e50',
+  } as TextStyle,
+  patientEmail: {
     fontSize: 14,
-  },
+    color: '#7f8c8d',
+    marginTop: 2,
+  } as TextStyle,
   appointmentDetails: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -94,35 +144,37 @@ const styles = StyleSheet.create({
     paddingTop: 12,
     borderTopWidth: 1,
     borderTopColor: '#ecf0f1',
-  },
+  } as ViewStyle,
   dateTimeContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-  },
+  } as ViewStyle,
   dateTimeText: {
     marginLeft: 4,
-    color: '#34495e',
-  },
+    marginRight: 12,
+    color: '#7f8c8d',
+    fontSize: 14,
+  } as TextStyle,
   timeIcon: {
     marginLeft: 16,
-  },
+  } as TextStyle,
   statusContainer: {
     paddingVertical: 4,
     paddingHorizontal: 8,
     borderRadius: 12,
-  },
+  } as ViewStyle,
   statusText: {
     fontSize: 12,
     fontWeight: '600',
-  },
+  } as TextStyle,
   notesContainer: {
     marginTop: 12,
     paddingTop: 12,
     borderTopWidth: 1,
     borderTopColor: '#ecf0f1',
-  },
+  } as ViewStyle,
   notesText: {
     color: '#7f8c8d',
     fontStyle: 'italic',
-  },
+  } as TextStyle,
 });
