@@ -1,24 +1,23 @@
 {
-  "rewrites": [
+  "version": 2,
+  "routes": [
     {
-      "source": "/appointments",
-      "destination": "/app"
+      "src": "/appointments/?(.*)",
+      "dest": "/app",
+      "continue": true
     },
     {
-      "source": "/app/(.*)",
-      "destination": "/app"
-    }
-  ],
-  "redirects": [
-    {
-      "source": "/appointments/success",
-      "destination": "/appointments",
-      "permanent": false
+      "src": "/app/?(.*)",
+      "dest": "/app",
+      "continue": true
     },
     {
-      "source": "/appointments/cancel",
-      "destination": "/appointments",
-      "permanent": false
+      "src": "/_next/static/(.*)",
+      "dest": "/_next/static/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/app"
     }
   ]
 }
