@@ -91,8 +91,8 @@ export default function NewAppointmentModal() {
         body: {
           appointment_id: appointmentId,
           amount_cents: 2000,
-          success_url: `${window.location.origin}/appointments/success/`,
-          cancel_url: `${window.location.origin}/appointments/cancel/`
+          success_url: `${window.location.origin}/appointments`,
+          cancel_url: `${window.location.origin}/appointments`
         }
       });
 
