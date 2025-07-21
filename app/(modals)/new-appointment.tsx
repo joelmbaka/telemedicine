@@ -87,12 +87,13 @@ export default function NewAppointmentModal() {
       const feeCents = 2000;
       
       // Create Stripe checkout session
+      const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || window.location.origin;
       const response = await supabase.functions.invoke('create-checkout-session', {
         body: {
           appointment_id: appointmentId,
           amount_cents: 2000,
-          success_url: `${window.location.origin}/appointments/success`,
-          cancel_url: `${window.location.origin}/appointments/cancel`
+          success_url: `${baseUrl}/appointments/success`,
+          cancel_url: `${baseUrl}/appointments/cancel`
         }
       });
 
