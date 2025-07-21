@@ -91,13 +91,13 @@ export default function NewAppointmentModal() {
         body: {
           appointment_id: appointmentId,
           amount_cents: 2000,
-          success_url: `${window.location.origin}/appointments/success/`,
-          cancel_url: `${window.location.origin}/appointments/cancel/`
+          success_url: `${window.location.origin}/appointments/success`,
+          cancel_url: `${window.location.origin}/appointments/cancel`
         }
       });
 
       if (response.error) {
-        console.error('Failed to create checkout session, please try again', response.error);
+        console.error('Failed to create checkout session', response.error);
       } else {
         // Redirect to the Stripe checkout page
         router.push(response.data.sessionUrl);
