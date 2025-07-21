@@ -97,7 +97,7 @@ export default function NewAppointmentModal() {
       });
 
       if (response.error) {
-        console.error('Failed to create checkout session', response.error);
+        console.error('Failed to create checkout session, please try again', response.error);
       } else {
         // Redirect to the Stripe checkout page
         router.push(response.data.sessionUrl);
