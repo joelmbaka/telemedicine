@@ -1,0 +1,24 @@
+{
+  "rewrites": [
+    {
+      "source": "/appointments",
+      "destination": "/app"
+    },
+    {
+      "source": "/app/(.*)",
+      "destination": "/app"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/appointments/success",
+      "destination": "/appointments",
+      "permanent": false
+    },
+    {
+      "source": "/appointments/cancel",
+      "destination": "/appointments",
+      "permanent": false
+    }
+  ]
+}
