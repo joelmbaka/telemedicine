@@ -23,7 +23,9 @@ export default function AppointmentsScreen() {
       const { data, error } = await supabase
         .from('appointments')
         .select(
-          `id, status, scheduled_at, doctor:doctors(id, specialty, rating_avg, available, profiles(full_name))`
+          `id, status, scheduled_at, 
+           doctor:doctors(id, specialty, rating_avg, available, profiles(full_name)),
+           patient:profiles(full_name, email)`
         )
         .eq('patient_id', userId)
         .order('scheduled_at', { ascending: true });
@@ -46,6 +48,10 @@ export default function AppointmentsScreen() {
         return {
           id: a.id,
           doctor: doctorObj,
+          patient: {
+            full_name: a.patient?.full_name || 'Unknown Patient',
+            email: a.patient?.email
+          },
           date: dt.toLocaleDateString(),
           time: dt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
           status: a.status,
