@@ -60,7 +60,7 @@ export default function ScheduleScreen() {
                 rating_avg: doctorData?.rating_avg || 0,
                 rating_count: doctorData?.rating_count || 0,
                 available: doctorData?.available || false,
-                consultation_fee_cents: doctorData?.consultation_fee_cents || 0,
+                consultation_fee_dollars: doctorData?.consultation_fee_dollars || 0,
                 bio: doctorData?.bio,
                 image_url: doctorData?.image_url,
                 stripe_account_id: doctorData?.stripe_account_id,

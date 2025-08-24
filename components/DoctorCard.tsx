@@ -11,8 +11,8 @@ export default function DoctorCard({ doctor, onPress }: DoctorCardProps) {
   return (
     <TouchableOpacity style={styles.card} onPress={onPress}>
       <View style={styles.imageContainer}>
-        {doctor.image ? (
-          <Image source={{ uri: doctor.image }} style={styles.image} />
+        {doctor.image_url ? (
+          <Image source={{ uri: doctor.image_url }} style={styles.image} />
         ) : (
           <Ionicons name="person-circle-outline" size={70} color="#95a5a6" />
         )}
@@ -20,11 +20,11 @@ export default function DoctorCard({ doctor, onPress }: DoctorCardProps) {
       
       <View style={styles.infoContainer}>
         <Text style={styles.name}>{doctor.name}</Text>
-        <Text style={styles.specialty}>{doctor.specialty}</Text>
+        <Text style={styles.specialty}>{doctor.specialties_info ? doctor.specialties_info.map(s => `${s.emoji} ${s.name}`).join(', ') : 'Multiple Specialties'}</Text>
         
         <View style={styles.ratingContainer}>
           <Ionicons name="star" size={16} color="#FFD700" />
-          <Text style={styles.ratingText}>{doctor.rating.toFixed(1)}</Text>
+          <Text style={styles.ratingText}>{(doctor.rating ?? 0).toFixed(1)}</Text>
         </View>
         
         <View style={styles.availabilityContainer}>

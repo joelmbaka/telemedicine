@@ -1,15 +1,18 @@
 export type Doctor = {
   id: string;
   name: string;
-  specialty: string;
+  specialties?: string[]; // array of specialty UUIDs (or names if joined)
+  rating?: number; // convenience field for average rating
   rating_avg?: number;
   rating_count?: number;
   available: boolean;
   image_url?: string;
-  consultation_fee_cents?: number;
+  consultation_fee_dollars?: number;
   bio?: string;
   stripe_account_id?: string;
   created_at?: string;
+  // optional full joined info if you query with a join
+  specialties_info?: { id: string; name: string; emoji: string }[];
 };
 
 export type Drug = {

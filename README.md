@@ -1,103 +1,35 @@
-# Telemedicine App
+# Telemedicine App (Gamified Marketplace Edition)
 
-A modern telemedicine application built with React Native, Expo, and Supabase. This application connects patients with healthcare providers for virtual consultations and appointment scheduling.
+End-to-end virtual-care platform now re-imagined as a playful **doctor marketplace**. Collect “skill cards,” earn MediCoins 🪙, book video consults, and unlock badges— all powered by **React Native** & **Expo**.
 
-## Features
+> 🚀 Deployed to iOS, Android & Web via **Expo EAS** with automated CI/CD and OTA updates.
 
-- **User Authentication**: Secure sign-up and login for both patients and doctors
-- **Appointment Scheduling**: Book, view, and manage medical appointments
-- **Doctor Profiles**: View doctor specialties, availability, and ratings
-- **Video Consultations**: Built-in video calling for remote consultations
-- **Cross-Platform**: Works on iOS, Android, and web
+## My Role & Impact
+- Led architecture and development efforts within a small cross-functional team.
+- Modelled relational schema in Supabase with Row-Level-Security and integrated Stripe payments.
+- Automated delivery pipeline (`development`, `preview`, `production` channels) to cut release time from hours to minutes.
 
-## Tech Stack
+## Product Highlights
+- **Secure Auth** – email/password with role-based flows for Patients and Doctors.
+- **Gamified Doctor Marketplace** – collectible skill cards, emoji reviews & real-time availability.
+- **MediCoins Economy** – virtual tokens for booking consults & unlocking swag.
+- **One-Tap Booking** – choose slot, pay with Stripe or MediCoins.
+- **In-App Video Consultations** – WebRTC powered sessions with notes & e-prescriptions.
+- **Doctor Dashboard** – manage availability slots and consultation records.
+- **Responsive UI** – consistent UX on phones, tablets and browsers.
 
-- **Frontend**: React Native with TypeScript
-- **Navigation**: Expo Router
-- **UI Components**: React Native Elements UI
-- **Backend**: Supabase (Authentication, Database)
-- **State Management**: React Context API
-- **Date Handling**: date-fns
-- **Icons**: @expo/vector-icons
+## What's New – Fun Edition 🥳
+- **Skill Cards** – doctors publish collectible cards with quirky titles.
+- **MediCoins & Badges** – earn virtual tokens and trophies for engagement.
+- **Leaderboards & Confetti** – weekly rankings plus secret Konami-code fireworks.
 
-## Prerequisites
-
-- Node.js 16+
-- npm or yarn
-- Expo CLI (`npm install -g expo-cli`)
-- Supabase account
-
-## Getting Started
-
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd healthcare
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   # or
-   yarn
-   ```
-
-3. **Set up environment variables**
-   - Copy `.env.example` to `.env`
-   - Fill in your Supabase URL and anon key
-
-4. **Start the development server**
-   ```bash
-   npx expo start
-   ```
-
-5. **Run the app**
-   - Press `a` for Android emulator
-   - Press `i` for iOS simulator
-   - Scan the QR code with your mobile device (Expo Go app required)
-   - Press `w` to open in web browser
-
-## Project Structure
-
-```
-/
-├── app/                    # Main application code
-│   ├── (tabs)/            # Main tab navigation
-│   ├── (doctor)/          # Doctor-specific screens
-│   ├── (modals)/          # Modal screens
-│   ├── auth/              # Authentication screens
-│   └── _layout.tsx        # Root layout
-├── assets/                # Static assets (images, fonts)
-├── components/            # Reusable components
-├── lib/                   # Utility functions and configurations
-└── types/                 # TypeScript type definitions
-```
-
-## Available Scripts
-
-- `npm start` - Start the development server
-- `npm run android` - Run on Android
-- `npm run ios` - Run on iOS
-- `npm run web` - Run in web browser
-- `npm run build:web` - Build for web deployment
-- `npm run lint` - Run ESLint
-
-## Environment Variables
-
-Create a `.env` file in the root directory with the following variables:
-
-```
-EXPO_PUBLIC_SUPABASE_URL=your_supabase_url
-EXPO_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-```
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+## Engineering Stack
+- **React Native + TypeScript** (Expo SDK 50) with **Expo Router** for file-based navigation.
+- **Supabase** (Auth, Postgres, Storage, RLS) as backend-as-a-service.
+- **Stripe** for secure payment intents.
+- **React Native Elements**, **Ionicons**, **date-fns** for polished UI & utilities.
+- **State**: React Context Hooks.
+- **CI/CD**: Expo EAS Build & Submit, release channels & OTA updates.
 
 ## License
 

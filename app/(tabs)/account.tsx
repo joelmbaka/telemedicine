@@ -1,4 +1,5 @@
 import { Button, Input } from '@rneui/themed';
+import { useRouter } from 'expo-router';
 import { Session } from '@supabase/supabase-js';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, Alert, StyleSheet, View } from 'react-native';
@@ -11,6 +12,7 @@ export default function AccountScreen() {
   const [username, setUsername] = useState('');
   const [website, setWebsite] = useState('');
   const [avatarUrl, setAvatarUrl] = useState('');
+  const router = useRouter();
 
   useEffect(() => {
     let isMounted = true;
@@ -152,7 +154,10 @@ export default function AccountScreen() {
       <View style={styles.verticallySpaced}>
         <Button 
           title="Sign Out" 
-          onPress={() => supabase.auth.signOut()} 
+          onPress={async () => {
+            await supabase.auth.signOut();
+            router.replace('/');
+          }} 
           buttonStyle={{ backgroundColor: '#ff3b30' }}
         />
       </View>

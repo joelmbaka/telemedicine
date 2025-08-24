@@ -1,11 +1,12 @@
 import { Tabs } from 'expo-router';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { COLORS } from '@/lib/theme';
 
 export default function DoctorTabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: '#ffd33d',
+        tabBarActiveTintColor: COLORS.primary,
         headerShown: false,
         headerStyle: { backgroundColor: '#25292e' },
         headerShadowVisible: false,
@@ -18,7 +19,17 @@ export default function DoctorTabLayout() {
       {/* Hide dynamic routes from tab bar */}
       <Tabs.Screen name="appointment/[id]" options={{ href: null }} />
       <Tabs.Screen name="consultation/[appointmentId]" options={{ href: null }} />
-
+      <Tabs.Screen name="skill/[id]" options={{ href: null }} />
+      
+      <Tabs.Screen
+        name="skills"
+        options={{
+          title: 'Skills',
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons name={focused ? 'construct' : 'construct-outline'} color={color} size={24} />
+          ),
+        }}
+      />
       <Tabs.Screen
         name="schedule"
         options={{
@@ -37,6 +48,7 @@ export default function DoctorTabLayout() {
           ),
         }}
       />
+      
       <Tabs.Screen
         name="account"
         options={{

@@ -70,12 +70,16 @@ export default function SignIn() {
           disabled={loading} 
           onPress={handleSignIn} 
           loading={loading}
-          buttonStyle={{ backgroundColor: '#2E7D32' }}
+          buttonStyle={{ backgroundColor: '#25292e' }}
+          titleStyle={{ color: '#ffd33d' }}
         />
       </View>
       <View style={styles.linkContainer}>
         <Link href="/auth/sign-up" style={styles.link}>
-          Don't have an account? <Text style={{ color: '#2E7D32', fontWeight: 'bold' }}>Sign up</Text>
+          Don't have an account? <Text style={{ color: '#ffd33d', fontWeight: 'bold' }}>Sign up</Text>
+        </Link>
+        <Link href="/auth/sign-up?role=doctor" style={styles.link}>
+          Are you a doctor? <Text style={{ color: '#ffd33d', fontWeight: 'bold' }}>Sign up as a doctor</Text>
         </Link>
       </View>
     </View>
@@ -101,7 +105,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   link: {
-    color: '#2E7D32',
+    color: '#25292e',
     fontSize: 16,
     marginTop: 15,
     textAlign: 'center',
@@ -109,7 +113,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: 'bold',
-    color: '#2E7D32',
+    color: '#25292e',
     textAlign: 'center',
     marginBottom: 20,
     textShadowColor: 'rgba(46, 125, 50, 0.3)',

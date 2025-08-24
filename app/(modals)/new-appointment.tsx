@@ -1,4 +1,5 @@
 import { Picker } from '@react-native-picker/picker';
+import { COLORS } from '@/lib/theme';
 import { format, parseISO } from 'date-fns';
 import { useRouter } from 'expo-router';
 import { useEffect, useState } from 'react';
@@ -27,12 +28,13 @@ export default function NewAppointmentModal() {
         console.error(error);
       } else {
         const list: Doctor[] = (data || []).map((d: any) => ({
-          id: d.id,
+          id: String(d.id),
           name: d.profiles?.full_name ?? 'Doctor',
           specialty: '',
           rating: 0,
           available: true,
         }));
+        console.log('Fetched doctors', list);
         setDoctors(list);
       }
     })();
@@ -44,14 +46,18 @@ export default function NewAppointmentModal() {
     
     const fetchSlots = async () => {
       setLoadingSlots(true);
+      console.log('Fetching slots for doctor', doctorId, 'on', selectedDate);
       const { data, error } = await supabase
         .rpc('get_free_slots', { 
           _doctor: doctorId, 
           _day: selectedDate 
         });
       
-      if (error) console.error(error);
-      else setSlots(data || []);
+      if (error) console.error('Error fetching slots', error);
+      else {
+        console.log('Fetched slots', data);
+        setSlots(data || []);
+      }
       
       setLoadingSlots(false);
     };
@@ -101,8 +107,11 @@ export default function NewAppointmentModal() {
       if (response.error) {
         console.error('Failed to create checkout session', response.error);
       } else {
-        // Redirect to the Stripe checkout page
-        router.push(response.data.sessionUrl);
+        // Open Stripe Checkout inside the app using in-app WebView screen
+        router.push({
+          pathname: '/checkout',
+          params: { url: response.data.sessionUrl }
+        });
       }
     }
     
@@ -117,9 +126,17 @@ export default function NewAppointmentModal() {
       <View style={styles.pickerWrapper}>
         <Picker
           selectedValue={doctorId}
-          onValueChange={(itemValue) => setDoctorId(itemValue)}
+          onValueChange={(itemValue) => {
+            console.log('Doctor selected:', itemValue);
+            setDoctorId(itemValue as string | undefined);
+            // Reset selected slot when doctor changes
+            setSelectedSlotId(null);
+          }}
+          style={styles.picker}
+          dropdownIconColor="#000"
+          mode="dropdown"
         >
-          <Picker.Item label="Select doctor…" value={undefined} />
+          <Picker.Item label="Select doctor…" value={undefined} color="#888" />
           {doctors.map((d) => (
             <Picker.Item key={d.id} label={d.name} value={d.id} />
           ))}
@@ -133,7 +150,7 @@ export default function NewAppointmentModal() {
           setSelectedSlotId(null);
         }}
         markedDates={{
-          [selectedDate || '']: {selected: true, selectedColor: '#3b82f6'}
+          [selectedDate || '']: {selected: true, selectedColor: COLORS.secondary}
         }}
       />
       
@@ -174,11 +191,21 @@ export default function NewAppointmentModal() {
         title="Confirm Appointment"
         disabled={!selectedSlotId || submitting}
         onPress={handleSubmit}
+        color={COLORS.secondary}
       />
 
       <View style={styles.buttonRow}>
-        <Button title="Cancel" onPress={() => router.replace('/(tabs)/appointments')} />
+        <Button title="Cancel" onPress={() => router.replace('/(tabs)/appointments')} color={COLORS.dark} />
       </View>
+
+      {submitting && (
+        <View style={styles.overlay}>
+          <View style={styles.overlayContent}>
+            <ActivityIndicator size="large" color={COLORS.primary} />
+            <Text style={styles.overlayText}>Redirecting to Stripe...</Text>
+          </View>
+        </View>
+      )}
     </View>
   );
 }
@@ -204,6 +231,11 @@ const styles = StyleSheet.create({
     borderColor: '#ccc',
     borderRadius: 8,
     overflow: 'hidden',
+    backgroundColor: '#fff',
+  },
+  picker: {
+    color: '#000', // ensure text is visible against white background
+    backgroundColor: '#fff',
   },
   buttonRow: {
     flexDirection: 'row',
@@ -211,15 +243,16 @@ const styles = StyleSheet.create({
     marginTop: 32,
   },
   slotButton: {
-    padding: 12,
+    paddingVertical: 8,
+    paddingHorizontal: 12,
     marginVertical: 4,
     borderRadius: 8,
     backgroundColor: '#f3f4f6',
   },
   selectedSlot: {
-    backgroundColor: '#3b82f6',
+    backgroundColor: COLORS.secondary,
     borderWidth: 2,
-    borderColor: '#2563eb',
+    borderColor: COLORS.secondary,
   },
   slotText: {
     textAlign: 'center',
@@ -229,5 +262,24 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: 'white',
     fontWeight: 'bold',
+  },
+  overlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0,0,0,0.6)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 100,
+  },
+  overlayContent: {
+    alignItems: 'center',
+  },
+  overlayText: {
+    marginTop: 12,
+    color: '#fff',
+    fontSize: 16,
   },
 });

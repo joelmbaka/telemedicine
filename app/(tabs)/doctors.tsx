@@ -1,5 +1,5 @@
+import React, { useEffect, useState } from 'react';
 import { Link } from 'expo-router';
-import { useEffect, useState } from 'react';
 import { ActivityIndicator, ScrollView, StyleSheet, Text, View } from 'react-native';
 import DoctorCard from '../../components/DoctorCard';
 import { supabase } from '../../lib/supabase';
@@ -14,7 +14,7 @@ export default function DoctorsScreen() {
     (async () => {
       const { data, error } = await supabase
         .from('doctors')
-        .select('id, specialty, rating_avg, available, profiles(full_name)')
+        .select('id, specialties, rating_avg, available, profiles(full_name)')
         .eq('available', true);
       if (!mounted) return;
       if (error) {
@@ -22,13 +22,36 @@ export default function DoctorsScreen() {
         setLoading(false);
         return;
       }
-      const list: Doctor[] = (data || []).map((d: any) => ({
-        id: d.id,
-        name: d.profiles?.full_name ?? 'Doctor',
-        specialty: d.specialty,
-        rating: Number(d.rating_avg) || 0,
-        available: d.available,
-      }));
+
+      // Gather unique specialty IDs
+      const specIds = new Set<string>();
+      (data || []).forEach((d: any) => {
+        (d.specialties || []).forEach((id: string) => specIds.add(id));
+      });
+
+      let specMap: Record<string, { id: string; name: string; emoji: string }> = {};
+      if (specIds.size) {
+        const { data: specs, error: specErr } = await supabase
+          .from('specialties')
+          .select('id,name,emoji')
+          .in('id', Array.from(specIds));
+        if (specErr) console.error(specErr);
+        (specs || []).forEach((s: any) => {
+          specMap[s.id] = s;
+        });
+      }
+
+      const list: Doctor[] = (data || []).map((d: any) => {
+        const profile = Array.isArray(d.profiles) ? d.profiles[0] : d.profiles;
+        return {
+          id: d.id,
+          name: profile?.full_name ?? 'Doctor',
+          rating: Number(d.rating_avg) || 0,
+          available: d.available,
+          specialties_info: (d.specialties || []).map((id: string) => specMap[id]).filter(Boolean),
+        } as Doctor;
+      });
+
       setDoctors(list);
       setLoading(false);
     })();

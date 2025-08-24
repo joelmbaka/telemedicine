@@ -1,5 +1,6 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Link, useRouter } from 'expo-router';
+import { COLORS } from '@/lib/theme';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import AppointmentCard from '../../components/AppointmentCard';
@@ -70,7 +71,7 @@ export default function AppointmentsScreen() {
   if (loading) {
     return (
       <View style={styles.center}>
-        <ActivityIndicator color="#64d2ff" />
+        <ActivityIndicator color={COLORS.primary} />
       </View>
     );
   }
@@ -90,7 +91,7 @@ export default function AppointmentsScreen() {
       
       {/* Book New Appointment Button */}
       <TouchableOpacity style={styles.bookButton} onPress={() => router.push('/(modals)/new-appointment')}>
-        <Ionicons name="add-circle" size={24} color="white" />
+        <Ionicons name="add-circle" size={24} color={COLORS.primary} />
         <Text style={styles.bookButtonText}>Book New Appointment</Text>
       </TouchableOpacity>
       
@@ -134,7 +135,7 @@ const styles = StyleSheet.create({
     color: '#2c3e50',
   },
   bookButton: {
-    backgroundColor: '#2E7D32',
+    backgroundColor: COLORS.dark,
     padding: 16,
     borderRadius: 8,
     alignItems: 'center',
@@ -144,7 +145,7 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   bookButtonText: {
-    color: 'white',
+    color: COLORS.primary,
     fontWeight: 'bold',
     fontSize: 16,
   },
@@ -153,7 +154,8 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     marginTop: 20,
     marginBottom: 10,
-    color: '#2E7D32',
+    color: COLORS.textPrimary,
+    backgroundColor: 'transparent',
   },
   emptyText: {
     fontSize: 16,

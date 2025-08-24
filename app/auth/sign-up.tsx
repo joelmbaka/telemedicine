@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import { Alert, StyleSheet, View, Text } from 'react-native';
 import { supabase } from '@/lib/supabase';
 import { Button, Input } from '@rneui/themed';
-import { Link } from 'expo-router';
+import { Link, useRouter, useLocalSearchParams } from 'expo-router';
 
 export default function SignUp() {
+  const params = useLocalSearchParams();
+  const roleParam = Array.isArray(params.role) ? params.role[0] : (params.role ?? '');
+  const isDoctor = roleParam === 'doctor';
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
@@ -19,18 +23,37 @@ export default function SignUp() {
     }
     
     setLoading(true);
-    const { error } = await supabase.auth.signUp({ 
+    const { data, error } = await supabase.auth.signUp({ 
       email, 
       password,
       options: {
-        data: { full_name: fullName }
+        data: { full_name: fullName, role: isDoctor ? 'doctor' : 'patient' }
       }
     });
-    
     if (error) {
       Alert.alert(error.message);
+      setLoading(false);
+      return;
+    }
+
+    // If signUp returned a user, attempt to create / update profile row (in case DB trigger is missing)
+    if (data.user) {
+      await supabase.from('profiles').upsert({
+        id: data.user.id,
+        full_name: fullName,
+        role: isDoctor ? 'doctor' : 'patient',
+      });
+    }
+
+    // Redirect if session already established (email confirm off)
+    if (data.session) {
+      if (isDoctor) {
+        router.push('/(modals)/doctor-onboarding');
+      } else {
+        router.replace('/(tabs)');
+      }
     } else {
-      setSnackbarVisible(true);
+      Alert.alert('Account created! Please check your email to confirm your address before signing in.');
     }
     setLoading(false);
   }
@@ -38,6 +61,9 @@ export default function SignUp() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>my health hub</Text>
+      {isDoctor && (
+        <Text style={styles.roleSubtitle}>Creating a doctor account – you’ll complete your profile and first Skill Card next.</Text>
+      )}
       <View style={[styles.verticallySpaced, styles.mt20]}>
         <Input
           label="Full Name"
@@ -86,13 +112,21 @@ export default function SignUp() {
           title="Create Account" 
           disabled={loading} 
           onPress={handleSignUp} 
-          buttonStyle={{ backgroundColor: '#2E7D32' }}
+          buttonStyle={{ backgroundColor: '#25292e' }}
+          titleStyle={{ color: '#ffd33d' }}
           loading={loading}
         />
       </View>
       <View style={styles.linkContainer}>
+        {!isDoctor && (
+          <Link href="/auth/sign-up?role=doctor" style={styles.link}>
+            Are you a doctor? <Text style={{ color: '#ffd33d', fontWeight: 'bold' }}>Sign up as a doctor</Text>
+          </Link>
+        )}
+      </View>
+      <View style={styles.linkContainer}>
         <Link href="/auth/sign-in" style={styles.link}>
-          Already have an account? <Text style={{ color: '#2E7D32', fontWeight: 'bold' }}>Sign in</Text>
+          Already have an account? <Text style={{ color: '#ffd33d', fontWeight: 'bold' }}>Sign in</Text>
         </Link>
       </View>
     </View>
@@ -118,7 +152,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   link: {
-    color: '#2E7D32',
+    color: '#25292e',
     fontSize: 16,
     marginTop: 15,
     textAlign: 'center',
@@ -126,12 +160,19 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 28,
     fontWeight: 'bold',
-    color: '#2E7D32',
+    color: '#25292e',
     textAlign: 'center',
     marginBottom: 20,
     textShadowColor: 'rgba(46, 125, 50, 0.3)',
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 2,
     letterSpacing: 1.2,
+  },
+  roleSubtitle: {
+    fontSize: 16,
+    color: '#666',
+    textAlign: 'center',
+    marginBottom: 20,
+
   },
 });

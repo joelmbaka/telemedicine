@@ -50,20 +50,25 @@ export default function RootLayout() {
     const firstSegment = segments[0] as string;
     const inAuthGroup = firstSegment === 'auth';
     const inTabsGroup = firstSegment === '(tabs)';
+    const inDoctorsDetail = firstSegment === 'doctors';
     const inDoctorGroup = firstSegment === '(doctor)';
     const inModalsGroup = firstSegment === '(modals)';
+  // Allow standalone Checkout screen to bypass redirects
+    const inCheckout = firstSegment === 'checkout';
+    // Root ("/") is the public landing page – treat it as its own group
+    const inLandingGroup = firstSegment === undefined || firstSegment === '';
 
-    if (!session && !inAuthGroup) {
-      router.replace('/auth/sign-in');
+    if (!session && !inAuthGroup && !inLandingGroup) {
+      router.replace('/');
       return;
     }
 
     if (!session || role === null) return; // wait until role fetched
 
     if (role === 'doctor') {
-      if (!inDoctorGroup && !inModalsGroup) router.replace('/(doctor)' as any);
+      if (!inDoctorGroup && !inModalsGroup && !inCheckout) router.replace('/(doctor)' as any);
     } else {
-      if (!inTabsGroup && !inModalsGroup) router.replace('/(tabs)');
+      if (!inTabsGroup && !inModalsGroup && !inCheckout && !inDoctorsDetail) router.replace('/(tabs)');
     }
   }, [session, isLoading, segments]);
 
