@@ -4,9 +4,10 @@ import { useLocalSearchParams } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import { supabase } from '../../lib/supabase';
+import SkillCard from '../../components/SkillCard';
 import { Doctor } from '../../lib/types';
 
-interface SkillCard {
+interface DoctorSkill {
   id: number;
   title: string;
   emoji: string | null;
@@ -20,7 +21,7 @@ export default function DoctorDetail() {
   const { id } = useLocalSearchParams();
   const [doctor, setDoctor] = useState<Doctor | null>(null);
   const [loading, setLoading] = useState(true);
-  const [skills, setSkills] = useState<SkillCard[]>([]);
+  const [skills, setSkills] = useState<DoctorSkill[]>([]);
 
   useEffect(() => {
     console.log('DoctorDetail param id:', id);
@@ -76,7 +77,7 @@ export default function DoctorDetail() {
       if (skillErr) console.error(skillErr);
       else {
         console.log('Fetched skill cards:', skillCards);
-        setSkills((skillCards as SkillCard[]) || []);
+        setSkills((skillCards as DoctorSkill[]) || []);
       }
 
       setLoading(false);
@@ -101,7 +102,17 @@ export default function DoctorDetail() {
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       {doctor.image_url && <Image source={{ uri: doctor.image_url }} style={styles.image} />}
       <Text style={styles.title}>{doctor.name}</Text>
-      <Text style={styles.specialties}>{doctor.specialties_info?.map(s => `${s.emoji} ${s.name}`).join(', ') || 'Multiple Specialties'}</Text>
+      {doctor.specialties_info?.length ? (
+        <Text style={styles.specialties}>
+          {doctor.specialties_info.map(s => `${s.emoji} ${s.name}`).join(', ')}
+        </Text>
+      ) : null}
+      <TouchableOpacity
+        style={styles.bookButton}
+        onPress={() => router.push(`/appointments/new?doctorId=${doctor.id}`)}
+      >
+        <Text style={styles.bookButtonText}>Book Appointment</Text>
+      </TouchableOpacity>
 
       <View style={styles.row}>
         <Ionicons name="star" size={16} color="#FFD700" />
@@ -124,14 +135,15 @@ export default function DoctorDetail() {
             renderItem={({ item }) => (
               <TouchableOpacity
                 style={styles.skillCard}
-                onPress={() => router.push({ pathname: '/skill/[id]', params: { id: item.id } })}
+                onPress={() => router.push({ pathname: '/(tabs)/(skill)/[id]', params: { id: item.id } })}
               >
-                {item.images && item.images.length ? (
-                  <Image source={{ uri: item.images[0] }} style={styles.skillImage} />
-                ) : (
-                  item.emoji && <Text style={styles.skillEmoji}>{item.emoji}</Text>
-                )}
-                <Text style={styles.skillTitle}>{item.title}</Text>
+                <SkillCard
+                  title={item.title}
+                  emoji={item.emoji || '💡'}
+                  rating={typeof item.avg_rating === 'number' ? item.avg_rating : undefined}
+                  reviewsCount={typeof item.reviews_count === 'number' ? item.reviews_count : undefined}
+                  ordersCount={typeof item.orders_count === 'number' ? item.orders_count : undefined}
+                />
               </TouchableOpacity>
             )}
           />
@@ -203,31 +215,19 @@ const styles = StyleSheet.create({
   },
   skillCard: {
     width: '48%',
-    backgroundColor: '#fff',
-    borderRadius: 12,
-    padding: 8,
     marginBottom: 12,
+  },
+  bookButton: {
+    backgroundColor: '#FFD33D',
+    borderRadius: 12,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
     alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
+    marginTop: 12,
+    alignSelf: 'center',
   },
-  skillImage: {
-    width: '100%',
-    height: 100,
-    borderTopLeftRadius: 12,
-    borderTopRightRadius: 12,
-  },
-  skillEmoji: {
-    fontSize: 36,
-  },
-  skillTitle: {
-    marginTop: 8,
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#2c3e50',
-    textAlign: 'center',
+  bookButtonText: {
+    color: '#000',
+    fontWeight: '700',
   },
 });

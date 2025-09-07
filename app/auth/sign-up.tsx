@@ -60,7 +60,7 @@ export default function SignUp() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>my health hub</Text>
+      <Text style={styles.title}>Sign up for your Remocare account</Text>
       {isDoctor && (
         <Text style={styles.roleSubtitle}>Creating a doctor account – you’ll complete your profile and first Skill Card next.</Text>
       )}

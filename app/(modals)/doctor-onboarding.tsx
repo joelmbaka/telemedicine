@@ -161,7 +161,7 @@ export default function DoctorOnboardingModal() {
         alert(error.message);
         return;
       }
-      router.back();
+      router.replace('/(doctor)');
       return;
     }
   };
@@ -206,7 +206,7 @@ export default function DoctorOnboardingModal() {
         <View style={styles.footer}>
           <Button title="Generate Slots" onPress={handleSubmit} disabled={submitting} />
           <View style={{ height: 12 }} />
-          <Button title="Skip" color="#888" onPress={() => router.back()} />
+          <Button title="Skip" color="#888" onPress={() => router.replace('/(doctor)')} />
         </View>
       </View>
     );

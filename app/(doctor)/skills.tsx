@@ -4,8 +4,7 @@ import { router, useFocusEffect } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { supabase } from '../../lib/supabase';
 import { COLORS } from '@/lib/theme';
-
-import { Image } from 'expo-image';
+ 
 
 interface Skill {
   id: number;
@@ -53,17 +52,9 @@ export default function SkillsScreen() {
   const renderItem = ({ item }: { item: Skill }) => (
     <TouchableOpacity
       style={styles.card}
-      onPress={() => router.push({ pathname: '/skill/[id]', params: { id: item.id } })}
+      onPress={() => router.push({ pathname: '/(doctor)/skill/[id]', params: { id: item.id } })}
     >
-      {item.images && item.images.length ? (
-        <Image
-          source={{ uri: item.images[0] }}
-          style={styles.cardImage}
-          contentFit="cover"
-        />
-      ) : (
-        item.emoji && <Text style={styles.emoji}>{item.emoji}</Text>
-      )}
+      <Text style={styles.emoji}>{item.emoji || '💡'}</Text>
       <Text style={styles.title}>{item.title}</Text>
       <View style={styles.metricsRow}>
         <Ionicons name="star" size={14} color="#f1c40f" />
@@ -148,12 +139,6 @@ const styles = StyleSheet.create({
     elevation: 2,
     overflow: 'hidden',
   } as ViewStyle,
-  cardImage: {
-    width: '100%',
-    height: 100,
-    borderTopLeftRadius: 12,
-    borderTopRightRadius: 12,
-  },
   emoji: {
     fontSize: 36,
   } as TextStyle,

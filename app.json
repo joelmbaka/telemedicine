@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "healthcare",
+    "name": "Remocare",
     "slug": "healthcare",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -43,7 +43,7 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "54d8e70c-00d5-4283-9471-ff831b2b6ce4"
+        "projectId": "d444db00-bc9d-402a-9d27-57bd36c7cdd6"
       }
     }
   }

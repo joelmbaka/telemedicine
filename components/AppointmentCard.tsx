@@ -1,5 +1,5 @@
 import { Ionicons } from '@expo/vector-icons';
-import { StyleSheet, Text, TouchableOpacity, View, ViewStyle, TextStyle } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, ViewStyle, TextStyle, Image, ImageStyle } from 'react-native';
 import { Appointment } from '../lib/types';
 
 type AppointmentCardProps = {
@@ -48,17 +48,16 @@ export default function AppointmentCard({ appointment, onPress }: AppointmentCar
       <View style={styles.header}>
         <View style={styles.patientInfo}>
           <View style={styles.avatar}>
-            <Ionicons name="person" size={20} color="#7f8c8d" />
+            {appointment.doctor?.image_url ? (
+              <Image source={{ uri: appointment.doctor.image_url }} style={styles.avatarImage} />
+            ) : (
+              <Ionicons name="person" size={20} color="#7f8c8d" />
+            )}
           </View>
           <View>
             <Text style={styles.patientName}>
-              {appointment.patient?.full_name || 'Unknown Patient'}
+              {appointment.doctor?.name || 'Doctor'}
             </Text>
-            {appointment.patient?.email && (
-              <Text style={styles.patientEmail}>
-                {appointment.patient.email}
-              </Text>
-            )}
           </View>
         </View>
       </View>
@@ -126,6 +125,11 @@ const styles = StyleSheet.create({
     alignItems: 'center' as const,
     marginRight: 12,
   } as ViewStyle,
+  avatarImage: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+  } as ImageStyle,
   patientName: {
     fontSize: 16,
     fontWeight: '600',

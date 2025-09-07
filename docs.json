@@ -1,0 +1,1302 @@
+[
+    {
+      "id": "19634a1c-67e9-42d8-b422-3138168fd1ed",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "9a5ef50f-cb97-4d74-9228-2c2971a20deb",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "9fcd50d3-527f-4c5e-8493-083d4afafd0e",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "2f3c2969-f8cb-4bbc-9232-e8b443e6462e",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "a6d4eca3-bef2-47de-8939-ab347d8f9ff2",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "ee033b92-8c08-402d-a76b-3fb232e59cc4",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "546e9758-9434-49a2-9f41-7084be2127d0",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "b10a2fbe-d341-48ca-b160-9bc2d7fcaf6b",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "0814cd83-c47f-4500-8bc6-68135818ed0e",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "43161c36-094e-49a6-b030-38904a3e5f16",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "dc29ade5-6050-45de-aab9-5a08f8911834",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "7674559d-15d9-4191-9034-01735405561e",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "37e6206b-b943-428d-bf11-adefff64d215",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "e62ee173-b327-4ad5-84b5-6c9be0108154",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "8030a72b-4b64-4aaa-94c6-3c61f0e784ef",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "b56bd2d9-4ac1-4b16-8158-e3c1aa00ef7b",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "07d7c061-e368-431d-ad6a-fb11f4202c75",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "7cf35e71-05cd-4372-801d-975ea9eea03b",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "1bdd9699-bea6-49a2-a5e8-22a8869b3fd0",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "b94a08ec-1442-4b91-8d43-02e508badf8b",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "f48814cf-be27-4a5b-bfd7-a735a1693d36",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "e4e645d2-89ae-4b15-bc91-f6697d21e648",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "982617b1-f441-447f-bd75-ea1c7da805ac",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "a72283fd-fecf-4f40-8fe9-b80cbdb8bc84",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "b59f0a46-4db3-484f-84ba-f41ce2af45b2",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "d3d95469-a2ae-4789-b27e-28cad3150033",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "f22a026e-36e4-4938-a0ea-27388432baab",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "2c535368-504d-4005-9eca-c5b4d719eda7",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "7657dba1-3649-48c3-acbd-fc28d9fbeeaa",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "78e917d8-2e8f-4ad3-bf35-50ca779ae13c",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "872f6cbf-a5ce-4375-a615-3bcb03ac416d",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "8d3fa402-b466-47b2-89a5-d1bfcf512c5c",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "442c9fbd-ef17-4f64-9556-0338fee1cd37",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "8b612a9a-81ab-4ced-a5e3-4fa1b3361df4",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "605cfb06-8536-48ef-81cb-3f79ee23f13d",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "4719846c-5c5e-41e4-af12-552d20d28672",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "47686068-e9fe-40a8-a295-a57f99096dc4",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "0644d4e2-9734-41a1-85b4-5e835b19d56c",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "d99a0a71-d8fb-43b3-ba77-4f43d4f6c68b",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "2e6bf8b3-7b35-44eb-94a1-1f5b76b7a173",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "e16e76a6-3233-4abd-991f-053313ff09fb",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "7886ff31-f481-4181-9eed-dd9b04e3e4e2",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "8e8429ef-27fa-41a7-80ff-08f988a386db",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "4acc02a8-ba96-42d3-8616-d1db10df019e",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "eec73893-4c78-4d0f-b30c-dab1d38d7333",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "bb0f9d5f-12b1-42c4-9397-83dc052896db",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "454ae695-c717-4516-824e-1c6d9cf82aad",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "d62f0051-ef8d-4921-8eb2-b2dbb540b287",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "4e660fce-7bd6-424d-a7cf-2d28e5d1fb4e",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "9261884c-5ae2-4e40-9585-14f43d6aec99",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "efe990fb-9569-48c6-b4fb-e6dc1989d058",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "6941fd68-7445-4d0d-a44c-1b02dd922522",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "f9679157-d4d0-4c63-9288-719df476072a",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "9816c8b4-6293-4e29-a760-80d38665765b",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "ef73f7e0-e5cd-41c3-95b4-ef50124ef410",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "2a47e9fd-afe1-4983-bda7-64d781062c1f",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "5e74ae73-79ca-4ab7-98d4-efd08706ddfe",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "c935bdd8-5aeb-4802-9c81-974adbd57050",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "231bab4e-d6a4-492c-91c7-6a5e3a051ab9",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "864a895c-0d90-4917-80e8-674b0bf47871",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "04c66619-ed0b-43e0-9536-2211dc48bf29",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "092445b6-d870-4f9a-8cb6-0e60fd353562",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "9cd3f7b7-f4ab-4c03-8b7a-1500289c1b80",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "d96ef9dc-c3b9-4e51-9af8-5b95b1ac4473",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "8792cf1b-8ea4-427e-9680-ccbe989d8ea0",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "82ed4630-7bc9-42e3-8881-5bf9130b0f3c",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "10dd0409-3146-4b0d-b3a5-130e8505f425",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "930843e1-34c3-4955-9c34-1c32d3f87c52",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "878021ff-b06e-4fd8-82b1-f9b2aa9e3382",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "9bb0a191-9913-46d3-8dfa-85ca253f1d2a",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "3cd6c700-d5c3-4646-8718-fe375c7a887f",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "2fe4b6ba-dc5e-4e04-ab63-1b1e8c0b906e",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "e5f09a94-ae37-4417-a371-5231dd67d67f",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "39d21b85-53a1-4fd7-9454-d95fad51e01e",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "5d5fdcf2-ca1f-42f6-9117-99847c5dec07",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "a60c18bc-bfe3-4a92-983d-4e500e2e06d9",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "1f2a3f12-516b-4990-9a57-b402a66f6609",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "45a967c9-b7b9-4c3b-bf5a-8c4fe6a54ae1",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "535f94a1-2563-493b-b12b-1da9d4f416eb",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "6246e2d3-1244-42d4-9d25-3a5686d1767a",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "acd7dbf2-d744-47ba-b4c5-10a6c0085ba6",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "9b05223d-af39-40a1-84d0-178f34332662",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "1fa18f2f-e321-4c7e-8448-62e6b20ff4b7",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "506f3b8d-7f66-45a6-89d4-a519cf6a410b",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "a912deb9-d335-4b10-aa04-186a4b156dee",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "7e784dd3-23c7-446f-9ec8-ae27b20845ad",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "c4c1bf59-42e9-44c2-a287-cae7bea92656",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "82ccbbbf-22f5-4eb6-8cdf-71d900443e44",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "f251d3b7-edf5-4a71-a0dd-687bf6afaf4c",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "6e8d90a1-b0e4-4a86-852e-030fb75d7c89",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "a5181357-4f51-42b4-9b4d-ef27c6702125",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "79e9459c-d11e-4580-b92f-07cdcc64ff63",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "81b93688-22d5-486d-b6cb-9d46f13640ba",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "1ce77416-dec7-4e8d-801b-c36039a3175b",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "fdd80bc9-3ec1-452a-8f57-62b364a69a0d",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "b3f7eb2e-dafa-421f-a443-540cf21c2de5",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "2adb4a17-2413-49d1-8e29-67cfdacfefce",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "7e2a452d-64ca-4432-9db5-c0f6be382d66",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "b508350d-11f5-4397-9ce9-1d6c9dc450fc",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    },
+    {
+      "id": "22d71fa4-f653-45d6-8be2-554175e43c8f",
+      "bio": null,
+      "rating_avg": "0.0",
+      "rating_count": 0,
+      "consultation_fee_dollars": 5000,
+      "available": true,
+      "stripe_account_id": null,
+      "created_at": "2025-09-07 08:43:42.411884+00",
+      "specialties": [
+        "8d66310a-4cb2-4a09-b780-c3daf60e4ca8"
+      ]
+    }
+  ]

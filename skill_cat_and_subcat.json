@@ -1,0 +1,636 @@
+[
+    {
+      "id": "8d66310a-4cb2-4a09-b780-c3daf60e4ca8",
+      "key": "primary_care",
+      "name": "Primary Care",
+      "emoji": "🩺",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "4bbb9fce-065f-4910-8a25-bada3a36174e",
+      "key": "pediatrics",
+      "name": "Pediatrics",
+      "emoji": "🧒",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "30d48d36-40d0-4e17-8f68-7606e68211a3",
+      "key": "cardiology",
+      "name": "Cardiology",
+      "emoji": "❤️",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "6718eeb1-203d-4b58-9f8a-b115301b9e2a",
+      "key": "dermatology",
+      "name": "Dermatology",
+      "emoji": "🧴",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "21df1c35-7e2b-41a0-b237-aba2367277e3",
+      "key": "neurology",
+      "name": "Neurology",
+      "emoji": "🧠",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "7169579f-5a6f-4e08-be37-98d24a6341fd",
+      "key": "psychiatry",
+      "name": "Psychiatry",
+      "emoji": "🧩",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "e479e691-4e78-4197-8dac-0067e73460d0",
+      "key": "orthopedics",
+      "name": "Orthopedics",
+      "emoji": "🦴",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "b1dbef15-3257-40e9-946e-ce8230aac02d",
+      "key": "obgyn",
+      "name": "OB/GYN",
+      "emoji": "🤰",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "d4b8d95c-f190-4cca-8a7a-d1f358c856fa",
+      "key": "endocrinology",
+      "name": "Endocrinology",
+      "emoji": "🧬",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "0384aa73-57d8-4925-a64e-987a765489a1",
+      "key": "gastroenterology",
+      "name": "Gastroenterology",
+      "emoji": "🩻",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "6237f5a3-9820-49e3-a23e-9087d0b3b825",
+      "key": "pulmonology",
+      "name": "Pulmonology",
+      "emoji": "🌬️",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "33196b82-b373-4da8-9160-911917623847",
+      "key": "oncology",
+      "name": "Oncology",
+      "emoji": "🎗️",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "815d5ddd-982c-4dab-b4d1-83b1a71b45ab",
+      "key": "rheumatology",
+      "name": "Rheumatology",
+      "emoji": "🦠",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "70ea103a-c43f-4cbc-a326-4d7233d0a8d0",
+      "key": "urology",
+      "name": "Urology",
+      "emoji": "💧",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "35c73d1c-9880-40d2-8ce5-29374b3e360c",
+      "key": "ophthalmology",
+      "name": "Ophthalmology",
+      "emoji": "👁️",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "90dc041f-ca42-40b9-b033-1e9d5eddf47a",
+      "key": "ent",
+      "name": "ENT",
+      "emoji": "👂",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "9a54ad89-41bd-407f-93bc-d25160966abd",
+      "key": "infectious_disease",
+      "name": "Infectious Disease",
+      "emoji": "🧫",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "2284c9a2-a7cd-4544-8744-73556c218df5",
+      "key": "allergy_immunology",
+      "name": "Allergy & Immunology",
+      "emoji": "🤧",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "290cf7ac-0cc7-4dee-8d4b-df0811214c4d",
+      "key": "nephrology",
+      "name": "Nephrology",
+      "emoji": "🩸",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "80d17e98-6176-41b3-b763-6d2687e3fa57",
+      "key": "pmr",
+      "name": "Physical Med & Rehab",
+      "emoji": "🏃",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    }
+  ]
+
+  SubCats
+  [
+    {
+      "id": "b0c5710b-6ebb-4205-9846-6f40b40d648e",
+      "key": "family_medicine",
+      "name": "Family Medicine",
+      "category_id": "8d66310a-4cb2-4a09-b780-c3daf60e4ca8",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "d5636f06-c55e-4007-957a-179fdf94238e",
+      "key": "internal_medicine",
+      "name": "Internal Medicine",
+      "category_id": "8d66310a-4cb2-4a09-b780-c3daf60e4ca8",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "1cb6ffbe-29aa-4cbd-93c0-8a933806a48d",
+      "key": "geriatrics",
+      "name": "Geriatrics",
+      "category_id": "8d66310a-4cb2-4a09-b780-c3daf60e4ca8",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "dadb010d-5c29-4ce7-a6c4-9740f3323da3",
+      "key": "general_practice",
+      "name": "General Practice",
+      "category_id": "8d66310a-4cb2-4a09-b780-c3daf60e4ca8",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "f191f740-2936-4ab8-8614-8f9025f9d68e",
+      "key": "neonatology",
+      "name": "Neonatology",
+      "category_id": "4bbb9fce-065f-4910-8a25-bada3a36174e",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "39a1fa53-2e70-4c08-8c38-de8ab5306273",
+      "key": "adolescent_medicine",
+      "name": "Adolescent Medicine",
+      "category_id": "4bbb9fce-065f-4910-8a25-bada3a36174e",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "c77be2c7-f436-4906-80f2-f90271d8daa9",
+      "key": "peds_cardiology",
+      "name": "Pediatric Cardiology",
+      "category_id": "4bbb9fce-065f-4910-8a25-bada3a36174e",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "52b86b8e-f352-4d4b-934a-c537deef9300",
+      "key": "peds_endocrinology",
+      "name": "Pediatric Endocrinology",
+      "category_id": "4bbb9fce-065f-4910-8a25-bada3a36174e",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "dd714529-53b7-4e43-b8a7-129e197408ac",
+      "key": "interventional",
+      "name": "Interventional",
+      "category_id": "30d48d36-40d0-4e17-8f68-7606e68211a3",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "6a566939-a631-4330-a768-6f51c887692a",
+      "key": "electrophysiology",
+      "name": "Electrophysiology",
+      "category_id": "30d48d36-40d0-4e17-8f68-7606e68211a3",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "eff2c87f-451a-4594-a8a8-4ac114dce2e0",
+      "key": "heart_failure",
+      "name": "Heart Failure",
+      "category_id": "30d48d36-40d0-4e17-8f68-7606e68211a3",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "5ff07af5-4d78-4dac-a11e-42ef9037c55c",
+      "key": "echocardiography",
+      "name": "Echocardiography",
+      "category_id": "30d48d36-40d0-4e17-8f68-7606e68211a3",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "4201865b-53d4-4371-8538-fead814fc863",
+      "key": "cosmetic",
+      "name": "Cosmetic",
+      "category_id": "6718eeb1-203d-4b58-9f8a-b115301b9e2a",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "9be1e969-0a75-49bc-bd1a-5b1cad626ae6",
+      "key": "pediatric_derm",
+      "name": "Pediatric Derm",
+      "category_id": "6718eeb1-203d-4b58-9f8a-b115301b9e2a",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "8e306562-e532-4768-a0e3-8e337df43e0a",
+      "key": "dermatopathology",
+      "name": "Dermatopathology",
+      "category_id": "6718eeb1-203d-4b58-9f8a-b115301b9e2a",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "1fc8d631-382e-44b3-95c4-83ba490e1920",
+      "key": "medical_derm",
+      "name": "Medical Derm",
+      "category_id": "6718eeb1-203d-4b58-9f8a-b115301b9e2a",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "07546f0b-b3c8-4f04-91e3-0dd01119c64c",
+      "key": "epilepsy",
+      "name": "Epilepsy",
+      "category_id": "21df1c35-7e2b-41a0-b237-aba2367277e3",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "c17a7cc3-ed59-4766-a4e4-c18d65b8e8a0",
+      "key": "stroke",
+      "name": "Stroke",
+      "category_id": "21df1c35-7e2b-41a0-b237-aba2367277e3",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "7c536cfe-eefe-4ba0-abee-7ee2a0f83f0b",
+      "key": "movement_disorders",
+      "name": "Movement Disorders",
+      "category_id": "21df1c35-7e2b-41a0-b237-aba2367277e3",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "8c7df3a8-8faf-4020-bfb9-944722e6b210",
+      "key": "headache",
+      "name": "Headache",
+      "category_id": "21df1c35-7e2b-41a0-b237-aba2367277e3",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "75c515d4-b985-4406-81aa-1e588e715d53",
+      "key": "adult",
+      "name": "Adult",
+      "category_id": "7169579f-5a6f-4e08-be37-98d24a6341fd",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "f7a5fe7f-9257-4b01-a3ef-2ccaab10951f",
+      "key": "child_adolescent",
+      "name": "Child & Adolescent",
+      "category_id": "7169579f-5a6f-4e08-be37-98d24a6341fd",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "5bddf03d-9380-4769-b456-5ac98dbc3d36",
+      "key": "geriatric_psych",
+      "name": "Geriatric",
+      "category_id": "7169579f-5a6f-4e08-be37-98d24a6341fd",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "a4d4b79f-1b96-4de4-89b4-59b4df474c0e",
+      "key": "addiction",
+      "name": "Addiction",
+      "category_id": "7169579f-5a6f-4e08-be37-98d24a6341fd",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "c9f977cc-eacf-463a-b95e-11b086964b97",
+      "key": "sports_medicine",
+      "name": "Sports Medicine",
+      "category_id": "e479e691-4e78-4197-8dac-0067e73460d0",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "32bb682f-8740-4662-8033-a27af9ab51db",
+      "key": "spine",
+      "name": "Spine",
+      "category_id": "e479e691-4e78-4197-8dac-0067e73460d0",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "16a1b477-ed11-4b3d-98da-6a9cc92873cd",
+      "key": "hand",
+      "name": "Hand",
+      "category_id": "e479e691-4e78-4197-8dac-0067e73460d0",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "e746d55c-a4f9-446c-9bbf-e9019945fd3d",
+      "key": "joint_replacement",
+      "name": "Joint Replacement",
+      "category_id": "e479e691-4e78-4197-8dac-0067e73460d0",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "755587cc-46e7-421a-81ff-65e57ba1d6e0",
+      "key": "maternal_fetal",
+      "name": "Maternal-Fetal",
+      "category_id": "b1dbef15-3257-40e9-946e-ce8230aac02d",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "e3230f65-0dbd-43c3-908b-cea0604c84f6",
+      "key": "reproductive_endocrinology",
+      "name": "Reproductive Endocrinology",
+      "category_id": "b1dbef15-3257-40e9-946e-ce8230aac02d",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "62dfe42f-6542-4efc-a9c6-aa8ef4b3aba9",
+      "key": "gyn_oncology",
+      "name": "Gynecologic Oncology",
+      "category_id": "b1dbef15-3257-40e9-946e-ce8230aac02d",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "00c2b688-9c9e-422f-97fe-b3c595caf485",
+      "key": "urogynecology",
+      "name": "Urogynecology",
+      "category_id": "b1dbef15-3257-40e9-946e-ce8230aac02d",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "08bacdfe-0940-4394-b781-ed2f4d3bb3ec",
+      "key": "diabetes",
+      "name": "Diabetes",
+      "category_id": "d4b8d95c-f190-4cca-8a7a-d1f358c856fa",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "81318673-88c7-478e-ad8e-54d3647d6d39",
+      "key": "thyroid",
+      "name": "Thyroid",
+      "category_id": "d4b8d95c-f190-4cca-8a7a-d1f358c856fa",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "84779a0a-c293-48d3-9592-a1ec7d283d31",
+      "key": "metabolic_bone",
+      "name": "Metabolic Bone",
+      "category_id": "d4b8d95c-f190-4cca-8a7a-d1f358c856fa",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "6850fc36-0d2f-42f2-9936-eedf0408c8dd",
+      "key": "hepatology",
+      "name": "Hepatology",
+      "category_id": "0384aa73-57d8-4925-a64e-987a765489a1",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "389be4b2-133e-4c6e-b4ce-e5e5e89391d3",
+      "key": "ibd",
+      "name": "Inflammatory Bowel Disease",
+      "category_id": "0384aa73-57d8-4925-a64e-987a765489a1",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "ce918dc8-dfdc-4fce-962c-e0b08d32dc93",
+      "key": "advanced_endoscopy",
+      "name": "Advanced Endoscopy",
+      "category_id": "0384aa73-57d8-4925-a64e-987a765489a1",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "6fa42d79-0871-4767-b3d1-9575cad271ce",
+      "key": "sleep_medicine",
+      "name": "Sleep Medicine",
+      "category_id": "6237f5a3-9820-49e3-a23e-9087d0b3b825",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "5f57faed-edcc-4e40-95d5-897d05774886",
+      "key": "critical_care",
+      "name": "Critical Care",
+      "category_id": "6237f5a3-9820-49e3-a23e-9087d0b3b825",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "95db19c7-690d-4899-9669-3a8f3eacc5fd",
+      "key": "asthma_copd",
+      "name": "Asthma/COPD",
+      "category_id": "6237f5a3-9820-49e3-a23e-9087d0b3b825",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "6dfd3010-3fc9-476f-82b2-2494d8e51ca3",
+      "key": "medical_oncology",
+      "name": "Medical Oncology",
+      "category_id": "33196b82-b373-4da8-9160-911917623847",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "f094592c-8b5d-4036-9c43-18f2cd7fd7ef",
+      "key": "radiation_oncology",
+      "name": "Radiation Oncology",
+      "category_id": "33196b82-b373-4da8-9160-911917623847",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "45169f1f-932b-4293-8c51-87bb84124d0b",
+      "key": "surgical_oncology",
+      "name": "Surgical Oncology",
+      "category_id": "33196b82-b373-4da8-9160-911917623847",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "42dbfcb6-7ac4-4d01-9099-261744c8759e",
+      "key": "autoimmune",
+      "name": "Autoimmune",
+      "category_id": "815d5ddd-982c-4dab-b4d1-83b1a71b45ab",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "88e42ea9-96df-4b4b-80be-b6fa490954b3",
+      "key": "lupus",
+      "name": "Lupus",
+      "category_id": "815d5ddd-982c-4dab-b4d1-83b1a71b45ab",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "2c4836b1-c214-4a69-9c0e-2dafea6f9a81",
+      "key": "arthritis",
+      "name": "Arthritis",
+      "category_id": "815d5ddd-982c-4dab-b4d1-83b1a71b45ab",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "f2a56134-c1bb-4290-bd45-bce52c941527",
+      "key": "female_urology",
+      "name": "Female Urology",
+      "category_id": "70ea103a-c43f-4cbc-a326-4d7233d0a8d0",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "ea071de2-e4dc-433b-ae34-ac04f2908344",
+      "key": "endourology",
+      "name": "Endourology",
+      "category_id": "70ea103a-c43f-4cbc-a326-4d7233d0a8d0",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "32f50ed6-a713-41f2-ab25-631d7f8e7f97",
+      "key": "urologic_oncology",
+      "name": "Urologic Oncology",
+      "category_id": "70ea103a-c43f-4cbc-a326-4d7233d0a8d0",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "58c93ed6-c7e8-4013-b107-18ae5beb4133",
+      "key": "retina",
+      "name": "Retina",
+      "category_id": "35c73d1c-9880-40d2-8ce5-29374b3e360c",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "6acb55c9-4ed5-42fe-b246-2a57462c51d8",
+      "key": "glaucoma",
+      "name": "Glaucoma",
+      "category_id": "35c73d1c-9880-40d2-8ce5-29374b3e360c",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "45dbed1c-1699-454d-85fa-fe2db8d3e497",
+      "key": "cornea",
+      "name": "Cornea",
+      "category_id": "35c73d1c-9880-40d2-8ce5-29374b3e360c",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "f4b1711b-820f-49ac-a9ba-02e7b698c71f",
+      "key": "pediatric_oph",
+      "name": "Pediatric Ophthalmology",
+      "category_id": "35c73d1c-9880-40d2-8ce5-29374b3e360c",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "4bf41220-81a0-464b-b1be-d7490bbb64b2",
+      "key": "otology",
+      "name": "Otology",
+      "category_id": "90dc041f-ca42-40b9-b033-1e9d5eddf47a",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "df6d514b-77fa-4449-926d-e01571415804",
+      "key": "rhinology",
+      "name": "Rhinology",
+      "category_id": "90dc041f-ca42-40b9-b033-1e9d5eddf47a",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "1ce1f260-eb73-4b23-b2c8-dd6c925dc0ad",
+      "key": "laryngology",
+      "name": "Laryngology",
+      "category_id": "90dc041f-ca42-40b9-b033-1e9d5eddf47a",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "19145295-17ae-4eba-9230-28c15072e4c5",
+      "key": "head_neck",
+      "name": "Head & Neck",
+      "category_id": "90dc041f-ca42-40b9-b033-1e9d5eddf47a",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "b0a6dbc8-d0ee-44cd-b523-a9c551025984",
+      "key": "hiv",
+      "name": "HIV",
+      "category_id": "9a54ad89-41bd-407f-93bc-d25160966abd",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "5834a257-ee42-40ca-bb01-9289cb653324",
+      "key": "tropical_medicine",
+      "name": "Tropical Medicine",
+      "category_id": "9a54ad89-41bd-407f-93bc-d25160966abd",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "c5c847c0-6db2-418e-bfc7-82b5394849b2",
+      "key": "antimicrobial_stewardship",
+      "name": "Antimicrobial Stewardship",
+      "category_id": "9a54ad89-41bd-407f-93bc-d25160966abd",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "f4287790-bfe4-44d3-8663-3c94e1c4c286",
+      "key": "adult_allergy",
+      "name": "Adult Allergy",
+      "category_id": "2284c9a2-a7cd-4544-8744-73556c218df5",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "cdf4be01-082f-4764-a5b4-3cb90c895744",
+      "key": "peds_allergy",
+      "name": "Pediatric Allergy",
+      "category_id": "2284c9a2-a7cd-4544-8744-73556c218df5",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "94310278-a3a9-4be9-916a-199620ed0be9",
+      "key": "asthma",
+      "name": "Asthma",
+      "category_id": "2284c9a2-a7cd-4544-8744-73556c218df5",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "8ebc040a-a5f9-409d-af4e-bccd6bf8bfbc",
+      "key": "dialysis",
+      "name": "Dialysis",
+      "category_id": "290cf7ac-0cc7-4dee-8d4b-df0811214c4d",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "ce869534-6aff-4693-a360-dae6e8322b43",
+      "key": "transplant",
+      "name": "Transplant",
+      "category_id": "290cf7ac-0cc7-4dee-8d4b-df0811214c4d",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "27633ebc-6c99-46e3-91b1-2fd46a3ca40f",
+      "key": "hypertension",
+      "name": "Hypertension",
+      "category_id": "290cf7ac-0cc7-4dee-8d4b-df0811214c4d",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "8705952e-d11c-4bab-aeaa-4ccf816ad2a7",
+      "key": "sports",
+      "name": "Sports",
+      "category_id": "80d17e98-6176-41b3-b763-6d2687e3fa57",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "41de8bd4-5266-4d08-b438-a1937fd38c48",
+      "key": "pain",
+      "name": "Pain",
+      "category_id": "80d17e98-6176-41b3-b763-6d2687e3fa57",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    },
+    {
+      "id": "7911bcd5-abfc-4b3f-a8e5-f64305197c36",
+      "key": "neurorehab",
+      "name": "Neurorehab",
+      "category_id": "80d17e98-6176-41b3-b763-6d2687e3fa57",
+      "created_at": "2025-08-29 22:16:09.241127+00"
+    }
+  ]

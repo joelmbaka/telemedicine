@@ -159,7 +159,7 @@ export default function DoctorAccountScreen() {
       <Text style={{color:'#fff', marginBottom:8}}>Rating: {ratingAvg.toFixed(1)} ({ratingCount})</Text>
 
       <Button title={updating ? 'Updating...' : 'Save'} onPress={handleSave} disabled={updating} buttonStyle={{ backgroundColor: '#64d2ff' }} titleStyle={{ color: '#000' }} />
-      <Button title="Sign Out" onPress={async()=>{await supabase.auth.signOut();router.replace('/');}} buttonStyle={{ backgroundColor: '#ff3b30', marginTop:12 }} />
+      <Button title="Sign Out" onPress={async()=>{await supabase.auth.signOut();router.dismissAll();router.replace('/');}} buttonStyle={{ backgroundColor: '#ff3b30', marginTop:12 }} />
     </ScrollView>
   );
 }

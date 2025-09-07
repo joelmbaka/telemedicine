@@ -23,17 +23,22 @@ export default function SignIn() {
       Alert.alert(error.message);
     } else if (data?.user) {
       // Get user role after successful sign-in
-      const { data: profile } = await supabase
+      const { data: profile, error: profileError } = await supabase
         .from('profiles')
         .select('role')
         .eq('id', data.user.id)
         .single();
       
-      // Navigate based on role
+      // Navigate based on role (default to patient if role fetch fails)
       if (profile?.role === 'doctor') {
         router.replace('/(doctor)');
       } else {
+        // Default to patient tabs if no role or role fetch failed
         router.replace('/(tabs)');
+      }
+      
+      if (profileError) {
+        console.warn('Failed to fetch user role, defaulting to patient:', profileError);
       }
     }
     setLoading(false);
@@ -41,7 +46,7 @@ export default function SignIn() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>my health hub</Text>
+      <Text style={styles.title}>Sign in to your Remocare account</Text>
       <View style={[styles.verticallySpaced, styles.mt20]}>
         <Input
           label="Email"

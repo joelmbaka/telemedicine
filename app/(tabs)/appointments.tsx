@@ -1,7 +1,8 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Link, useRouter } from 'expo-router';
 import { COLORS } from '@/lib/theme';
-import { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
 import { ActivityIndicator, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import AppointmentCard from '../../components/AppointmentCard';
 import { supabase } from '../../lib/supabase';
@@ -12,39 +13,41 @@ export default function AppointmentsScreen() {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
-  useEffect(() => {
-    let mounted = true;
-    (async () => {
+  const fetchAppointments = useCallback(async () => {
+    try {
+      setLoading(true);
       const { data: sessionData } = await supabase.auth.getSession();
-      const userId = sessionData.session?.user.id;
+      const userId = sessionData.session?.user?.id;
       if (!userId) {
+        setAppointments([]);
         setLoading(false);
         return;
       }
       const { data, error } = await supabase
         .from('appointments')
         .select(
-          `id, status, scheduled_at, 
-           doctor:doctors(id, specialty, rating_avg, available, profiles(full_name)),
+          `id, status, scheduled_at,
+           doctor:doctors(id, specialties, rating_avg, available, profiles(full_name, avatar_url)),
            patient:profiles(full_name, email)`
         )
         .eq('patient_id', userId)
         .order('scheduled_at', { ascending: true });
-      if (!mounted) return;
       if (error) {
         console.error(error);
+        setAppointments([]);
         setLoading(false);
         return;
       }
       const list: Appointment[] = (data || []).map((a: any) => {
         const dt = new Date(a.scheduled_at);
-        const { id: docId, specialty, rating_avg, available, profiles } = a.doctor || {};
+        const { id: docId, specialties, rating_avg, available, profiles } = a.doctor || {};
         const doctorObj = {
           id: docId,
           name: profiles?.full_name ?? 'Doctor',
-          specialty,
+          specialties,
           rating: Number(rating_avg) || 0,
           available,
+          image_url: profiles?.avatar_url,
         } as Doctor;
         return {
           id: a.id,
@@ -55,18 +58,27 @@ export default function AppointmentsScreen() {
           },
           date: dt.toLocaleDateString(),
           time: dt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+          scheduled_at: a.scheduled_at,
           status: a.status,
         } as Appointment;
       });
       setAppointments(list);
       setLoading(false);
-    })().finally(() => {
-      if (mounted) setLoading(false);
-    });
-    return () => {
-      mounted = false;
-    };
+    } catch (e) {
+      console.error(e);
+      setLoading(false);
+    }
   }, []);
+
+  useEffect(() => {
+    fetchAppointments();
+  }, [fetchAppointments]);
+
+  useFocusEffect(
+    useCallback(() => {
+      fetchAppointments();
+    }, [fetchAppointments])
+  );
 
   if (loading) {
     return (
@@ -77,11 +89,11 @@ export default function AppointmentsScreen() {
   }
 
   const upcomingAppointments = appointments.filter(a => {
-    const dt = new Date(`${a.date} ${a.time}`);
+    const dt = a.scheduled_at ? new Date(a.scheduled_at) : new Date(`${a.date} ${a.time}`);
     return dt >= new Date();
   });
   const pastAppointments = appointments.filter(a => {
-    const dt = new Date(`${a.date} ${a.time}`);
+    const dt = a.scheduled_at ? new Date(a.scheduled_at) : new Date(`${a.date} ${a.time}`);
     return dt < new Date();
   });
 
@@ -89,10 +101,10 @@ export default function AppointmentsScreen() {
     <ScrollView style={styles.container}>
       <Text style={styles.title}>Appointments</Text>
       
-      {/* Book New Appointment Button */}
-      <TouchableOpacity style={styles.bookButton} onPress={() => router.push('/(modals)/new-appointment')}>
+      {/* Book flow now starts from Skill or Doctor pages */}
+      <TouchableOpacity style={styles.bookButton} onPress={() => router.push('/(tabs)')}>
         <Ionicons name="add-circle" size={24} color={COLORS.primary} />
-        <Text style={styles.bookButtonText}>Book New Appointment</Text>
+        <Text style={styles.bookButtonText}>Browse skills to book</Text>
       </TouchableOpacity>
       
       {/* Upcoming Appointments */}

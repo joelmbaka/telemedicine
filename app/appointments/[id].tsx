@@ -23,13 +23,13 @@ export default function AppointmentDetail() {
           doctor: {
             id: 'd1',
             name: 'Dr. Jane Smith',
-            specialty: 'Cardiology',
+            specialties: ['cardiology'],
             rating: 4.8,
             available: true,
           },
           date: '2023-06-15',
           time: '10:00 AM',
-          status: 'upcoming',
+          status: 'paid',
           notes: 'Follow up on heart condition',
         },
         {
@@ -37,39 +37,39 @@ export default function AppointmentDetail() {
           doctor: {
             id: 'd2',
             name: 'Dr. Michael Chen',
-            specialty: 'Dermatology',
+            specialties: ['dermatology'],
             rating: 4.6,
             available: true,
           },
           date: '2023-06-20',
           time: '2:30 PM',
-          status: 'upcoming',
+          status: 'paid',
         },
         {
           id: '3',
           doctor: {
             id: 'd3',
             name: 'Dr. Sarah Johnson',
-            specialty: 'Pediatrics',
+            specialties: ['pediatrics'],
             rating: 4.9,
             available: false,
           },
           date: '2023-05-10',
           time: '9:15 AM',
-          status: 'past',
+          status: 'complete',
         },
         {
           id: '4',
           doctor: {
             id: 'd4',
             name: 'Dr. Robert Kim',
-            specialty: 'Orthopedics',
+            specialties: ['orthopedics'],
             rating: 4.7,
             available: true,
           },
           date: '2023-04-28',
           time: '11:45 AM',
-          status: 'past',
+          status: 'complete',
         },
       ];
       
@@ -93,7 +93,7 @@ export default function AppointmentDetail() {
     <View style={styles.container}>
       <Text style={styles.title}>Appointment Details</Text>
       <Text>Doctor: {appointment.doctor.name}</Text>
-      <Text>Specialty: {appointment.doctor.specialty}</Text>
+      <Text>Specialties: {appointment.doctor.specialties?.join(', ') || 'General'}</Text>
       <Text>Date: {appointment.date}</Text>
       <Text>Time: {appointment.time}</Text>
       <Text>Status: {appointment.status}</Text>

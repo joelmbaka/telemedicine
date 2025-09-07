@@ -156,6 +156,8 @@ export default function AccountScreen() {
           title="Sign Out" 
           onPress={async () => {
             await supabase.auth.signOut();
+            // Use dismissAll to clear the entire navigation stack and go to root
+            router.dismissAll();
             router.replace('/');
           }} 
           buttonStyle={{ backgroundColor: '#ff3b30' }}

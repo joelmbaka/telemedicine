@@ -1,8 +1,53 @@
-import { Tabs } from 'expo-router';
+import { Tabs, useRouter } from 'expo-router';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { COLORS } from '@/lib/theme';
+import { useEffect, useState } from 'react';
+import { supabase } from '@/lib/supabase';
 
 export default function DoctorTabLayout() {
+  const router = useRouter();
+  const [checked, setChecked] = useState(false);
+
+  useEffect(() => {
+    let mounted = true;
+    (async () => {
+      const { data } = await supabase.auth.getSession();
+      if (!mounted) return;
+      if (!data.session) {
+        router.replace('/auth/sign-in');
+        return;
+      }
+      
+      // Check if user has doctor role
+      const { data: profile, error: profileError } = await supabase
+        .from('profiles')
+        .select('role')
+        .eq('id', data.session.user.id)
+        .single();
+      
+      if (!mounted) return;
+      
+      // If user is not a doctor (patient or no role), redirect to patient area
+      if (profile?.role !== 'doctor') {
+        router.replace('/(tabs)');
+        return;
+      }
+      
+      if (profileError) {
+        console.warn('Failed to fetch user role in doctor area, redirecting to patient tabs:', profileError);
+        router.replace('/(tabs)');
+        return;
+      }
+      
+      setChecked(true);
+    })();
+    return () => {
+      mounted = false;
+    };
+  }, [router]);
+
+  if (!checked) return null;
+
   return (
     <Tabs
       screenOptions={{

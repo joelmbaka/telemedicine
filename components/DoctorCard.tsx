@@ -20,7 +20,11 @@ export default function DoctorCard({ doctor, onPress }: DoctorCardProps) {
       
       <View style={styles.infoContainer}>
         <Text style={styles.name}>{doctor.name}</Text>
-        <Text style={styles.specialty}>{doctor.specialties_info ? doctor.specialties_info.map(s => `${s.emoji} ${s.name}`).join(', ') : 'Multiple Specialties'}</Text>
+        {doctor.specialties_info?.length ? (
+          <Text style={styles.specialty}>
+            {doctor.specialties_info.map(s => `${s.emoji} ${s.name}`).join(', ')}
+          </Text>
+        ) : null}
         
         <View style={styles.ratingContainer}>
           <Ionicons name="star" size={16} color="#FFD700" />

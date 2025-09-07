@@ -9,7 +9,9 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "build:web": "expo export --platform web --output-dir web-build --clear",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "seed:profiles": "node ./scripts/seed_profiles.mjs",
+    "seed:avatar": "node ./scripts/seed_avatar.mjs"
   },
   "dependencies": {
     "@expo/vector-icons": "^14.1.0",
